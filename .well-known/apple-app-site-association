@@ -1,0 +1,11 @@
+{
+  "applinks": {
+    "apps": [],
+    "details": [
+      {
+        "appID": "UG4L8VGUD5.com.bolaverse.app",
+        "paths": ["/join/*"]
+      }
+    ]
+  }
+}

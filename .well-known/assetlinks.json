@@ -1,0 +1,12 @@
+[
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.bolaverse.app",
+      "sha256_cert_fingerprints": [
+        "E6:96:F3:79:93:77:D8:2B:59:21:B6:12:BD:A9:00:74:11:D5:32:F2:CA:31:15:D0:15:87:15:A2:F9:C6:13:06"
+      ]
+    }
+  }
+]

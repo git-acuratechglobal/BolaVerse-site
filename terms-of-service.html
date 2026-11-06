@@ -1,0 +1,1168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="apple-itunes-app" content="app-id=6793082058" />
+<link rel="icon" href="favicon.ico" sizes="48x48" />
+<link rel="icon" href="favicon.png" type="image/png" sizes="96x96" />
+<link rel="icon" href="favicon-48x48.png" type="image/png" sizes="48x48" />
+<link rel="icon" href="favicon-32x32.png" type="image/png" sizes="32x32" />
+<link rel="icon" href="favicon-16x16.png" type="image/png" sizes="16x16" />
+<link rel="apple-touch-icon" href="apple-touch-icon.png" sizes="180x180" />
+<link rel="manifest" href="site.webmanifest" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Terms of Service — BolaVerse</title>
+<meta name="description" content="The Terms of Service for BolaVerse, the social football picks game. Not a betting product — for entertainment only." />
+<style>
+
+  @import url('https://api.fontshare.com/v2/css?f[]=switzer@400,500,600,700,800,900&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;700&display=swap');
+
+  :root {
+    --bg: #010a09;
+    --bg-soft: #05110d;
+    --bg-card: rgba(255,255,255,0.035);
+    --bg-card-hover: rgba(255,255,255,0.06);
+    --border: rgba(255,255,255,0.09);
+    --border-strong: rgba(255,255,255,0.16);
+    --text: #ffffff;
+    --text-dim: #a9b6b4;
+    --text-dimmer: #647471;
+    --lime: #a3e34d;
+    --lime-deep: #7dbf2f;
+    --teal: #2dd4be;
+    --blue: #0f6fe8;
+    --ink: #01130d;
+  }
+
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  html, body {
+    margin: 0; padding: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Switzer', -apple-system, BlinkMacSystemFont, sans-serif;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+  }
+  ::selection { background: var(--lime); color: var(--ink); }
+  a { color: inherit; }
+  .mono { font-family: 'JetBrains Mono', monospace; }
+
+  img { max-width: 100%; display: block; }
+
+  .wrap { max-width: 1120px; margin: 0 auto; padding-left: 24px; padding-right: 24px; }
+
+  /* ---------- header ---------- */
+  
+  .lp-header {
+    position: sticky; top: 0; z-index: 50;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 14px 24px;
+    background: rgba(1,10,9,0.72);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+  }
+  .lp-brand { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+  .lp-brand img { height: 64px; width: auto; }
+  .lp-nav { display: flex; align-items: center; gap: 28px; }
+  .lp-nav a {
+    color: var(--text-dim); text-decoration: none; font-size: 13.5px; font-weight: 500;
+    transition: color .2s ease;
+  }
+  .lp-nav a:hover { color: var(--text); }
+  .lp-nav-links { display: flex; gap: 26px; }
+  .lp-cta-btn {
+    background: #2eb356; color: #000000; font-weight: 700; font-size: 13.5px;
+    padding: 10px 18px; border-radius: 999px; text-decoration: none; white-space: nowrap;
+    border: 1px solid #2eb356;
+    transition: transform .15s ease, box-shadow .15s ease;
+  }
+  .lp-cta-btn:hover { transform: translateY(-1px); box-shadow: 0 8px 24px rgba(46, 179, 86, 0.4); }
+  .lp-nav .lp-cta-btn, .lp-nav .lp-cta-btn:hover { color: #000000; }
+  /* Mobile menu button & dropdown window */
+  .lp-menu-toggle {
+    display: none;
+    width: 40px; height: 38px;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.22);
+    border-radius: 8px;
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    padding: 0;
+    transition: background .2s ease, border-color .2s ease, color .2s ease;
+  }
+  .lp-menu-toggle:hover, .lp-menu-toggle.is-active {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.4);
+    color: var(--lime);
+  }
+  .lp-menu-toggle .lp-icon-close { display: none; }
+  .lp-menu-toggle.is-active .lp-icon-menu { display: none; }
+  .lp-menu-toggle.is-active .lp-icon-close { display: block; }
+
+  .lp-mobile-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    width: 230px;
+    background: #081311;
+    border-left: 1px solid rgba(255, 255, 255, 0.14);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.14);
+    box-shadow: -10px 18px 40px rgba(0, 0, 0, 0.7);
+    z-index: 100;
+  }
+  .lp-mobile-menu.is-open {
+    display: flex;
+    flex-direction: column;
+    animation: lpMenuSlideDown .18s ease-out;
+  }
+  @keyframes lpMenuSlideDown {
+    from { opacity: 0; transform: translateY(-6px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .lp-mobile-link {
+    display: block;
+    padding: 13px 20px;
+    color: #f1f5f4;
+    font-size: 15px;
+    font-weight: 600;
+    text-decoration: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    transition: background .15s ease, color .15s ease;
+    text-align: left;
+  }
+  .lp-mobile-link:last-child {
+    border-bottom: none;
+  }
+  .lp-mobile-link:hover, .lp-mobile-link:active {
+    background: rgba(255, 255, 255, 0.05);
+    color: var(--lime);
+  }
+
+  @media (max-width: 780px) {
+    
+  .lp-header { padding: 12px 18px; }
+    .lp-brand img { height: 56px; }
+    .lp-nav { gap: 10px; }
+    .lp-nav-links { display: none; }
+    .lp-cta-btn { padding: 8px 14px; font-size: 13px; }
+    .lp-menu-toggle { display: inline-flex; }
+  }
+
+  /* ---------- hero ---------- */
+  .lp-hero {
+    position: relative;
+    padding: 96px 24px 64px;
+    overflow: hidden;
+    isolation: isolate;
+  }
+  .lp-hero::before {
+    content: '';
+    position: absolute; inset: -20% -10% auto -10%; height: 720px;
+    background:
+      radial-gradient(560px 420px at 18% 8%, rgba(15,111,232,0.30), transparent 60%),
+      radial-gradient(620px 460px at 82% 4%, rgba(163,227,77,0.22), transparent 60%),
+      radial-gradient(900px 500px at 50% -10%, rgba(45,212,190,0.14), transparent 65%);
+    z-index: -2;
+    pointer-events: none;
+  }
+  .lp-pitch-lines {
+    position: absolute; left: 0; right: 0; bottom: -40px; height: 420px;
+    z-index: -1; opacity: 0.5; pointer-events: none;
+  }
+  .lp-hero-inner {
+    max-width: 1120px; margin: 0 auto;
+    display: grid; grid-template-columns: 1.05fr 0.95fr; gap: 56px; align-items: center;
+  }
+  .lp-eyebrow {
+    display: inline-flex; align-items: center; gap: 8px;
+    color: var(--lime); font-size: 12px; font-weight: 700; letter-spacing: 1.6px;
+    text-transform: uppercase; margin: 0 0 20px;
+    padding: 6px 12px 6px 8px; border: 1px solid var(--border-strong); border-radius: 999px;
+    background: rgba(163,227,77,0.06);
+  }
+  .lp-eyebrow-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--lime); box-shadow: 0 0 10px var(--lime); }
+  .lp-h1 {
+    font-size: clamp(40px, 5.4vw, 66px);
+    font-weight: 800; letter-spacing: -0.03em; line-height: 1.03;
+    margin: 0 0 22px;
+  }
+  .lp-h1 em {
+    font-style: normal;
+    background: linear-gradient(96deg, var(--lime) 0%, var(--teal) 60%);
+    -webkit-background-clip: text; background-clip: text; color: transparent;
+  }
+  .lp-hero-sub {
+    color: var(--text-dim); font-size: 18px; line-height: 1.6;
+    max-width: 480px; margin: 0 0 32px;
+  }
+  .lp-hero-ctas { display: flex; gap: 14px; flex-wrap: wrap; margin-bottom: 28px; }
+  .lp-btn-primary {
+    background: var(--lime); color: var(--ink); font-weight: 700; font-size: 14.5px;
+    padding: 15px 26px; border-radius: 999px; text-decoration: none;
+    transition: transform .15s ease, box-shadow .15s ease;
+    display: inline-flex; align-items: center; gap: 8px;
+  }
+  .lp-btn-primary:hover { transform: translateY(-2px); box-shadow: 0 10px 30px rgba(163,227,77,0.28); }
+  .lp-btn-secondary {
+    border: 1px solid var(--border-strong); color: var(--text); font-weight: 600; font-size: 14.5px;
+    padding: 15px 26px; border-radius: 999px; text-decoration: none;
+    transition: border-color .2s ease, background .2s ease;
+    display: inline-flex; align-items: center; gap: 8px;
+  }
+  .lp-btn-secondary:hover { border-color: var(--teal); background: rgba(45,212,190,0.06); }
+  .lp-hero-trust { display: flex; align-items: center; gap: 10px; color: var(--text-dimmer); font-size: 13px; }
+  .lp-hero-trust b { color: var(--text-dim); font-weight: 600; }
+
+  /* ---------- hero pick card (visual centerpiece) ---------- */
+  .lp-pick-card {
+    position: relative;
+    background: linear-gradient(180deg, rgba(255,255,255,0.05), rgba(255,255,255,0.02));
+    border: 1px solid var(--border-strong);
+    border-radius: 24px;
+    padding: 22px;
+    box-shadow: 0 30px 80px rgba(0,0,0,0.45);
+    transform: rotate(1.4deg);
+  }
+  .lp-pick-card::after {
+    content: '';
+    position: absolute; inset: 0; border-radius: 24px;
+    background: linear-gradient(140deg, rgba(163,227,77,0.10), transparent 40%);
+    pointer-events: none;
+  }
+  .lp-pick-top { display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px; }
+  .lp-pick-comp { font-size: 11.5px; font-weight: 700; letter-spacing: .8px; text-transform: uppercase; color: var(--teal); }
+  .lp-pick-live { display: flex; align-items: center; gap: 6px; font-size: 11px; color: var(--text-dimmer); }
+  .lp-pick-live-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--lime); animation: lp-pulse 1.6s infinite; }
+  @keyframes lp-pulse { 0%,100% { opacity: 1; } 50% { opacity: .25; } }
+
+  .lp-teams { display: flex; align-items: center; justify-content: space-between; padding: 10px 4px 20px; }
+  .lp-team { display: flex; flex-direction: column; align-items: center; gap: 10px; width: 84px; }
+  .lp-crest {
+    width: 46px; height: 46px; border-radius: 12px;
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 800; font-size: 15px;
+    border: 1px solid var(--border-strong);
+  }
+  .lp-crest.a { background: linear-gradient(150deg, rgba(163,227,77,0.22), rgba(163,227,77,0.05)); color: var(--lime); }
+  .lp-crest.b { background: linear-gradient(150deg, rgba(45,212,190,0.22), rgba(45,212,190,0.05)); color: var(--teal); }
+  .lp-team-name { font-size: 12px; color: var(--text-dim); text-align: center; font-weight: 600; }
+  .lp-score-mid { display: flex; align-items: center; gap: 10px; }
+  .lp-score-box {
+    width: 44px; height: 54px; border-radius: 12px;
+    background: var(--bg-soft); border: 1px solid var(--border-strong);
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'JetBrains Mono', monospace; font-weight: 700; font-size: 24px;
+    color: var(--text);
+  }
+  .lp-score-box.filled { border-color: var(--lime); box-shadow: 0 0 0 3px rgba(163,227,77,0.12); color: var(--lime); }
+  .lp-score-sep { color: var(--text-dimmer); font-weight: 700; }
+
+  .lp-pick-footer {
+    display: flex; align-items: center; justify-content: space-between;
+    border-top: 1px dashed var(--border); padding-top: 16px;
+  }
+  .lp-pick-status { font-size: 12.5px; color: var(--text-dimmer); }
+  .lp-pick-points {
+    display: flex; align-items: center; gap: 8px;
+    background: rgba(163,227,77,0.1); border: 1px solid rgba(163,227,77,0.35);
+    color: var(--lime); font-weight: 700; font-size: 13px;
+    padding: 7px 12px; border-radius: 999px;
+  }
+
+  @media (max-width: 900px) {
+    .lp-hero-inner { grid-template-columns: 1fr; }
+    .lp-pick-card { transform: none; max-width: 420px; margin: 0 auto; }
+  }
+
+  /* ---------- section shell ---------- */
+  section { padding: 88px 24px; position: relative; }
+  .lp-section-head { max-width: 640px; margin: 0 0 52px; }
+  .lp-eyebrow-plain {
+    color: var(--teal); font-size: 12px; font-weight: 700; letter-spacing: 1.6px;
+    text-transform: uppercase; margin: 0 0 14px;
+  }
+  .lp-h2 {
+    font-size: clamp(28px, 3.6vw, 42px); font-weight: 800; letter-spacing: -0.02em;
+    margin: 0 0 16px; line-height: 1.1;
+  }
+  .lp-section-sub { color: var(--text-dim); font-size: 16px; line-height: 1.6; margin: 0; }
+
+  /* ---------- trust strip ---------- */
+  .lp-trust {
+    padding: 22px 24px;
+    background: linear-gradient(90deg, rgba(15,111,232,0.10), rgba(163,227,77,0.06));
+    border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);
+  }
+  .lp-trust-inner {
+    max-width: 1120px; margin: 0 auto;
+    display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 18px;
+  }
+  .lp-trust-headline { font-weight: 700; font-size: 15.5px; display: flex; align-items: center; gap: 10px; }
+  .lp-trust-headline svg { flex: none; }
+  .lp-trust-points { display: flex; gap: 26px; flex-wrap: wrap; }
+  .lp-trust-point { font-size: 13px; color: var(--text-dim); display: flex; align-items: center; gap: 7px; }
+  .lp-trust-point b { color: var(--text); }
+
+  /* ---------- competitions ---------- */
+  .lp-comp-grid {
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px;
+  }
+  .lp-comp-card {
+    background: var(--bg-card); border: 1px solid var(--border); border-radius: 18px;
+    padding: 22px 20px; transition: border-color .2s ease, transform .2s ease, background .2s ease;
+  }
+  .lp-comp-card:hover { border-color: var(--border-strong); background: var(--bg-card-hover); transform: translateY(-3px); }
+  .lp-comp-tag {
+    width: 38px; height: 38px; border-radius: 10px;
+    display: flex; align-items: center; justify-content: center; margin-bottom: 16px;
+    font-family: 'JetBrains Mono', monospace; font-weight: 700; font-size: 12px;
+    border: 1px solid var(--border-strong); color: var(--lime);
+    background: rgba(163,227,77,0.08);
+  }
+  .lp-comp-name { font-size: 15.5px; font-weight: 700; margin: 0 0 6px; }
+  .lp-comp-desc { font-size: 13px; color: var(--text-dimmer); margin: 0; line-height: 1.5; }
+
+  @media (max-width: 900px) {
+    .lp-comp-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 520px) {
+    .lp-comp-grid { grid-template-columns: 1fr; }
+  }
+
+  /* ---------- how it works ---------- */
+  .lp-steps {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px;
+  }
+  .lp-step {
+    border: 1px solid var(--border); border-radius: 20px; padding: 28px 24px;
+    background: var(--bg-card); position: relative; overflow: hidden;
+  }
+  .lp-step-num {
+    font-family: 'JetBrains Mono', monospace; font-size: 13px; font-weight: 700;
+    color: var(--text-dimmer); margin-bottom: 22px; letter-spacing: 1px;
+  }
+  .lp-step-num span { color: var(--lime); }
+  .lp-step h3 { font-size: 19px; font-weight: 700; margin: 0 0 10px; letter-spacing: -0.01em; }
+  .lp-step p { font-size: 14px; color: var(--text-dim); margin: 0; line-height: 1.6; }
+  .lp-step-line {
+    position: absolute; left: 0; top: 0; bottom: 0; width: 2px;
+    background: linear-gradient(180deg, var(--lime), transparent);
+  }
+
+  @media (max-width: 900px) {
+    .lp-steps { grid-template-columns: 1fr; }
+  }
+
+  /* ---------- PIA engine (signature interactive) ---------- */
+  .lp-pia {
+    background: var(--bg-soft);
+    border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);
+  }
+  .lp-pia-grid {
+    display: grid; grid-template-columns: 0.95fr 1.05fr; gap: 56px; align-items: center;
+    max-width: 1120px; margin: 0 auto;
+  }
+  .lp-pia-copy p.lp-section-sub { margin-bottom: 26px; }
+  .lp-pia-list { list-style: none; margin: 0 0 30px; padding: 0; display: flex; flex-direction: column; gap: 14px; }
+  .lp-pia-list li { display: flex; align-items: flex-start; gap: 12px; font-size: 14.5px; color: var(--text-dim); line-height: 1.55; }
+  .lp-pia-list b { color: var(--text); }
+  .lp-pia-bullet { flex: none; width: 20px; height: 20px; border-radius: 6px; background: rgba(163,227,77,0.12); border: 1px solid rgba(163,227,77,0.3); display: flex; align-items: center; justify-content: center; margin-top: 2px; }
+
+  .lp-pia-demo {
+    background: linear-gradient(180deg, rgba(255,255,255,0.05), rgba(255,255,255,0.015));
+    border: 1px solid var(--border-strong); border-radius: 22px; padding: 26px;
+  }
+  .lp-pia-demo-head { display: flex; align-items: center; justify-content: space-between; margin-bottom: 22px; }
+  .lp-pia-demo-title { font-size: 12px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: var(--text-dimmer); }
+  .lp-pia-demo-badge {
+    font-family: 'JetBrains Mono', monospace; font-size: 11px; font-weight: 700; color: var(--blue);
+    border: 1px solid rgba(15,111,232,0.4); background: rgba(15,111,232,0.1);
+    padding: 4px 10px; border-radius: 999px;
+  }
+
+  .lp-pia-teams { display: flex; align-items: center; justify-content: center; gap: 22px; margin-bottom: 22px; }
+  .lp-pia-team { text-align: center; width: 92px; }
+  .lp-pia-crest { width: 44px; height: 44px; border-radius: 11px; margin: 0 auto 8px; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 14px; border: 1px solid var(--border-strong); }
+  .lp-pia-crest.a { background: rgba(163,227,77,0.14); color: var(--lime); }
+  .lp-pia-crest.b { background: rgba(45,212,190,0.14); color: var(--teal); }
+  .lp-pia-team-name { font-size: 12px; color: var(--text-dim); font-weight: 600; }
+
+  .lp-stepper-group { display: flex; align-items: center; gap: 8px; justify-content: center; }
+  .lp-stepper {
+    display: flex; align-items: center; gap: 10px;
+    background: var(--bg-soft); border: 1px solid var(--border-strong); border-radius: 14px; padding: 8px 10px;
+  }
+  .lp-stepper button {
+    width: 26px; height: 26px; border-radius: 8px; border: 1px solid var(--border-strong);
+    background: transparent; color: var(--text); font-size: 15px; cursor: pointer; line-height: 1;
+    display: flex; align-items: center; justify-content: center;
+    transition: background .15s ease, border-color .15s ease;
+  }
+  .lp-stepper button:hover { background: rgba(163,227,77,0.14); border-color: var(--lime); }
+  .lp-stepper button:focus-visible, .lp-comp-card:focus-visible, .lp-cta-btn:focus-visible, .lp-btn-primary:focus-visible, .lp-btn-secondary:focus-visible {
+    outline: 2px solid var(--lime); outline-offset: 2px;
+  }
+  .lp-stepper .lp-score-num { font-family: 'JetBrains Mono', monospace; font-weight: 700; font-size: 20px; width: 22px; text-align: center; }
+  .lp-vs { color: var(--text-dimmer); font-weight: 700; font-size: 13px; }
+
+  .lp-pia-result {
+    margin-top: 24px; padding-top: 20px; border-top: 1px dashed var(--border);
+    display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap;
+  }
+  .lp-pia-result-label { font-size: 12.5px; color: var(--text-dimmer); line-height: 1.5; max-width: 220px; }
+  .lp-pia-points {
+    font-family: 'JetBrains Mono', monospace; font-weight: 700; font-size: 30px; color: var(--lime);
+    display: flex; align-items: baseline; gap: 6px;
+  }
+  .lp-pia-points span { font-size: 12px; color: var(--text-dimmer); font-family: 'Switzer', sans-serif; font-weight: 600; }
+  .lp-pia-tag {
+    font-size: 11px; font-weight: 700; letter-spacing: .5px; text-transform: uppercase;
+    padding: 5px 10px; border-radius: 999px; border: 1px solid var(--border-strong); color: var(--text-dim);
+    transition: all .2s ease;
+  }
+  .lp-pia-tag.hot { color: var(--teal); border-color: rgba(45,212,190,0.4); background: rgba(45,212,190,0.08); }
+  .lp-pia-tag.double { color: var(--lime); border-color: rgba(163,227,77,0.4); background: rgba(163,227,77,0.1); }
+
+  @media (max-width: 900px) {
+    .lp-pia-grid { grid-template-columns: 1fr; gap: 36px; }
+  }
+
+  /* ---------- leagues ---------- */
+  .lp-league-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+  .lp-league-card {
+    border: 1px solid var(--border); border-radius: 20px; padding: 30px 26px;
+    background: var(--bg-card);
+  }
+  .lp-league-card.priv { background: linear-gradient(160deg, rgba(163,227,77,0.08), rgba(255,255,255,0.02)); border-color: rgba(163,227,77,0.28); }
+  .lp-league-card.pub { background: linear-gradient(160deg, rgba(45,212,190,0.08), rgba(255,255,255,0.02)); border-color: rgba(45,212,190,0.28); }
+  .lp-league-icon {
+    width: 44px; height: 44px; border-radius: 12px; display: flex; align-items: center; justify-content: center;
+    margin-bottom: 20px; border: 1px solid var(--border-strong);
+  }
+  .lp-league-card.priv .lp-league-icon { color: var(--lime); background: rgba(163,227,77,0.12); }
+  .lp-league-card.pub .lp-league-icon { color: var(--teal); background: rgba(45,212,190,0.12); }
+  .lp-league-card h3 { font-size: 20px; font-weight: 700; margin: 0 0 10px; letter-spacing: -0.01em; }
+  .lp-league-card p { font-size: 14.5px; color: var(--text-dim); line-height: 1.6; margin: 0 0 20px; }
+  .lp-league-code {
+    display: inline-flex; align-items: center; gap: 8px;
+    font-family: 'JetBrains Mono', monospace; font-size: 13px; font-weight: 700;
+    border: 1px dashed var(--border-strong); border-radius: 10px; padding: 8px 12px; color: var(--text-dim);
+  }
+  @media (max-width: 780px) { .lp-league-grid { grid-template-columns: 1fr; } }
+
+  /* ---------- leaderboard mockup ---------- */
+  .lp-board {
+    margin-top: 44px;
+    border: 1px solid var(--border); border-radius: 20px; overflow: hidden; background: var(--bg-card);
+  }
+  .lp-board-head {
+    display: grid; grid-template-columns: 44px 1fr 70px 70px; gap: 10px;
+    padding: 14px 20px; font-size: 11px; letter-spacing: .6px; text-transform: uppercase; color: var(--text-dimmer);
+    border-bottom: 1px solid var(--border);
+  }
+  .lp-board-row {
+    display: grid; grid-template-columns: 44px 1fr 70px 70px; gap: 10px; align-items: center;
+    padding: 14px 20px; border-bottom: 1px solid var(--border); font-size: 14px;
+  }
+  .lp-board-row:last-child { border-bottom: none; }
+  .lp-board-row.me { background: rgba(163,227,77,0.06); }
+  .lp-rank { font-family: 'JetBrains Mono', monospace; font-weight: 700; color: var(--text-dimmer); }
+  .lp-rank.top { color: var(--lime); }
+  .lp-player { display: flex; align-items: center; gap: 10px; }
+  .lp-avatar { width: 28px; height: 28px; border-radius: 50%; background: linear-gradient(135deg, var(--teal), var(--blue)); flex: none; }
+  .lp-player-name { font-weight: 600; }
+  .lp-player-you { color: var(--lime); font-size: 11px; font-weight: 700; margin-left: 6px; }
+  .lp-points-col { font-family: 'JetBrains Mono', monospace; font-weight: 700; text-align: right; }
+  .lp-delta { font-family: 'JetBrains Mono', monospace; font-size: 12px; text-align: right; }
+  .lp-delta.up { color: var(--lime); }
+  .lp-delta.down { color: #f0664c; }
+
+  /* ---------- download / cta ---------- */
+  .lp-cta {
+    text-align: center; padding: 100px 24px;
+    background:
+      radial-gradient(700px 320px at 50% 0%, rgba(163,227,77,0.14), transparent 65%);
+    border-top: 1px solid var(--border);
+  }
+  .lp-cta h2 { font-size: clamp(30px, 4.4vw, 48px); font-weight: 800; letter-spacing: -0.02em; margin: 0 0 16px; }
+  .lp-cta p { color: var(--text-dim); font-size: 16px; max-width: 480px; margin: 0 auto 34px; }
+  .lp-store-row { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; margin-bottom: 18px; }
+  .lp-store-btn {
+    display: flex; align-items: center; gap: 10px;
+    border: 1px solid var(--border-strong); border-radius: 14px; padding: 11px 20px;
+    text-decoration: none; color: var(--text); text-align: left;
+    transition: border-color .2s ease, background .2s ease;
+  }
+  .lp-store-btn:hover { border-color: var(--lime); background: rgba(163,227,77,0.06); }
+  .lp-store-btn .lp-store-eyebrow { font-size: 10px; color: var(--text-dimmer); display: block; }
+  .lp-store-btn .lp-store-name { font-size: 14px; font-weight: 700; display: block; }
+  .lp-cta-note { font-size: 12.5px; color: var(--text-dimmer); }
+
+  /* ---------- footer ---------- */
+  /* ---------- footer ---------- */
+  .lp-footer { padding: 64px 24px 44px; border-top: 1px solid var(--border); }
+  .lp-footer-container {
+    max-width: 760px; margin: 0 auto;
+  }
+  .lp-footer-contact {
+    text-align: center;
+    margin-bottom: 8px;
+  }
+  .lp-footer-contact-title {
+    font-size: 26px; font-weight: 800; color: #fff; margin: 0 0 8px;
+    letter-spacing: -0.02em;
+  }
+  .lp-footer-contact-sub {
+    font-size: 15px; color: var(--text-dim); margin: 0 0 22px;
+  }
+  .lp-whatsapp-btn {
+    display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+    background: #25D366; color: #01130d;
+    font-size: 15px; font-weight: 700; text-decoration: none;
+    padding: 12px 26px; border-radius: 999px;
+    transition: transform .2s ease, box-shadow .2s ease;
+  }
+  .lp-whatsapp-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(37, 211, 102, 0.35);
+    color: #01130d;
+  }
+  .lp-footer-social-title {
+    font-size: 16px; font-weight: 700; color: #fff;
+    margin: 34px 0 16px;
+    letter-spacing: -0.01em;
+  }
+  .lp-footer-social-row {
+    display: flex; align-items: center; justify-content: center; gap: 14px;
+  }
+  .lp-footer-social-btn {
+    width: 48px; height: 48px; border-radius: 12px;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid var(--border);
+    color: #fff;
+    display: inline-flex; align-items: center; justify-content: center;
+    text-decoration: none;
+    transition: background .2s ease, border-color .2s ease, transform .2s ease, color .2s ease;
+  }
+  .lp-footer-social-btn:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.3);
+    color: var(--lime);
+    transform: translateY(-2px);
+  }
+  .lp-footer-divider {
+    height: 1px; background: var(--border);
+    margin: 36px 0 28px;
+  }
+  .lp-footer-cols {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;
+    text-align: left;
+  }
+  .lp-footer-col h4 {
+    font-size: 12px; letter-spacing: .8px; text-transform: uppercase;
+    color: var(--text-dimmer); margin: 0 0 14px; font-weight: 700;
+  }
+  .lp-footer-col a {
+    display: block; color: var(--text-dim); font-size: 13.5px;
+    text-decoration: none; margin-bottom: 10px;
+    transition: color .2s ease;
+  }
+  .lp-footer-col a:hover { color: var(--lime); }
+  .lp-footer-bottom {
+    display: flex; flex-direction: column; gap: 6px;
+    color: var(--text-dimmer); font-size: 12px; line-height: 1.55;
+    text-align: left;
+  }
+  .lp-footer-bottom p { margin: 0; }
+  @media (max-width: 600px) {
+    .lp-footer { padding: 44px 20px 36px; }
+    .lp-footer-contact-title { font-size: 22px; }
+    .lp-footer-contact-sub { font-size: 14px; margin-bottom: 18px; }
+    .lp-whatsapp-btn { padding: 11px 22px; font-size: 14.5px; }
+    .lp-footer-social-title { font-size: 15px; margin-top: 28px; margin-bottom: 14px; }
+    .lp-footer-social-btn { width: 44px; height: 44px; }
+    .lp-footer-divider { margin: 28px 0 24px; }
+    .lp-footer-cols { gap: 14px; }
+    .lp-footer-col a { font-size: 13px; margin-bottom: 8px; }
+    .lp-footer-bottom { font-size: 11.5px; gap: 5px; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    * { animation: none !important; transition: none !important; }
+    html { scroll-behavior: auto; }
+  }
+
+
+  /* ---------- legal / help page shell ---------- */
+  .lp-page-hero {
+    padding: 64px 24px 40px;
+    text-align: center;
+    background: radial-gradient(700px 280px at 50% 0%, rgba(163,227,77,0.12), transparent 65%);
+    border-bottom: 1px solid var(--border);
+  }
+  .lp-page-eyebrow {
+    display: inline-flex; align-items: center; gap: 8px;
+    color: var(--lime); font-size: 12px; font-weight: 700; letter-spacing: 1.6px;
+    text-transform: uppercase; margin: 0 0 16px;
+    padding: 6px 12px 6px 8px; border: 1px solid var(--border-strong); border-radius: 999px;
+    background: rgba(163,227,77,0.06);
+  }
+  .lp-page-title { font-size: clamp(32px, 4.6vw, 52px); font-weight: 800; letter-spacing: -0.02em; margin: 0 0 14px; }
+  .lp-page-sub { color: var(--text-dim); font-size: 16px; max-width: 560px; margin: 0 auto; line-height: 1.6; }
+  .lp-updated { margin-top: 18px; font-size: 12.5px; color: var(--text-dimmer); }
+
+  .lp-legal-wrap { max-width: 820px; margin: 0 auto; padding: 64px 24px 96px; }
+
+  /* search box (help center) */
+  .lp-search {
+    max-width: 560px; margin: 28px auto 0;
+    display: flex; align-items: center; gap: 10px;
+    background: var(--bg-card); border: 1px solid var(--border-strong); border-radius: 999px;
+    padding: 12px 18px;
+  }
+  .lp-search input {
+    flex: 1; background: transparent; border: none; outline: none;
+    color: var(--text); font-family: 'Switzer', sans-serif; font-size: 14.5px;
+  }
+  .lp-search input::placeholder { color: var(--text-dimmer); }
+  .lp-search svg { flex: none; color: var(--text-dimmer); }
+  .lp-search-empty { text-align: center; color: var(--text-dimmer); font-size: 14px; padding: 24px 0; display: none; }
+
+  /* accordion */
+  .lp-accordion { border: 1px solid var(--border); border-radius: 20px; overflow: hidden; background: var(--bg-card); margin-bottom: 14px; }
+  .lp-acc-item + .lp-acc-item { border-top: 1px solid var(--border); }
+  .lp-acc-trigger {
+    width: 100%; display: flex; align-items: center; justify-content: space-between; gap: 16px;
+    background: transparent; border: none; text-align: left; cursor: pointer;
+    padding: 20px 22px; color: var(--text); font-family: 'Switzer', sans-serif;
+    font-size: 15.5px; font-weight: 700; letter-spacing: -0.01em;
+    transition: background .15s ease;
+  }
+  .lp-acc-trigger:hover { background: var(--bg-card-hover); }
+  .lp-acc-trigger:focus-visible { outline: 2px solid var(--lime); outline-offset: -2px; }
+  .lp-acc-icon {
+    flex: none; width: 26px; height: 26px; border-radius: 8px;
+    border: 1px solid var(--border-strong); display: flex; align-items: center; justify-content: center;
+    transition: transform .25s ease, border-color .2s ease, background .2s ease;
+  }
+  .lp-acc-item.open .lp-acc-icon { transform: rotate(45deg); border-color: var(--lime); background: rgba(163,227,77,0.12); color: var(--lime); }
+  .lp-acc-panel {
+    max-height: 0; overflow: hidden; transition: max-height .3s ease;
+  }
+  .lp-acc-panel-inner { padding: 0 22px 22px; color: var(--text-dim); font-size: 14.5px; line-height: 1.7; }
+  .lp-acc-panel-inner p { margin: 0 0 12px; }
+  .lp-acc-panel-inner p:last-child { margin-bottom: 0; }
+  .lp-acc-panel-inner ul { margin: 0 0 12px; padding-left: 20px; }
+  .lp-acc-panel-inner a { color: var(--teal); text-decoration: underline; text-underline-offset: 2px; }
+  .lp-acc-cat { margin: 40px 0 16px; font-size: 12px; font-weight: 700; letter-spacing: 1.2px; text-transform: uppercase; color: var(--teal); }
+  .lp-acc-cat:first-child { margin-top: 0; }
+
+  /* legal doc body sections (non-accordion, plain readable) */
+  .lp-legal-section { margin-bottom: 34px; }
+  .lp-legal-section h2 { font-size: 19px; font-weight: 700; margin: 0 0 12px; letter-spacing: -0.01em; }
+  .lp-legal-section p { color: var(--text-dim); font-size: 14.5px; line-height: 1.75; margin: 0 0 12px; }
+  .lp-legal-section ul { color: var(--text-dim); font-size: 14.5px; line-height: 1.75; padding-left: 20px; margin: 0 0 12px; }
+  .lp-legal-section a { color: var(--teal); text-decoration: underline; text-underline-offset: 2px; }
+  .lp-legal-toc {
+    background: var(--bg-card); border: 1px solid var(--border); border-radius: 16px;
+    padding: 18px 22px; margin-bottom: 40px;
+  }
+  .lp-legal-toc h3 { font-size: 12px; letter-spacing: 1.2px; text-transform: uppercase; color: var(--text-dimmer); margin: 0 0 12px; }
+  .lp-legal-toc ol { margin: 0; padding-left: 18px; columns: 2; gap: 20px; }
+  .lp-legal-toc li { font-size: 13.5px; margin-bottom: 8px; break-inside: avoid; }
+  .lp-legal-toc a { color: var(--text-dim); text-decoration: none; }
+  .lp-legal-toc a:hover { color: var(--lime); }
+  @media (max-width: 600px) { .lp-legal-toc ol { columns: 1; } }
+
+  .lp-back-link {
+    display: inline-flex; align-items: center; gap: 6px; color: var(--text-dimmer);
+    font-size: 13px; text-decoration: none; margin-bottom: 22px;
+  }
+  .lp-back-link:hover { color: var(--text); }
+
+</style>
+</head>
+<body>
+
+<aside class="lp-app-banner" id="appInstallBanner" aria-label="App download banner" style="display:none;">
+  <div class="lp-app-banner-left">
+    <button class="lp-app-banner-close" id="appBannerClose" aria-label="Close app banner">&times;</button>
+    <img src="data:image/png;base64,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" class="lp-app-banner-icon" alt="BolaVerse" />
+    <div class="lp-app-banner-info">
+      <strong class="lp-app-banner-title">BolaVerse</strong>
+      <span class="lp-app-banner-sub" id="appBannerSub">Free on the App Store</span>
+    </div>
+  </div>
+  <a class="lp-app-banner-btn" id="appBannerBtn" href="#">Get</a>
+</aside>
+
+<header class="lp-header">
+  <a class="lp-brand" href="index.html">
+    <img src="data:image/png;base64,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" alt="BolaVerse" />
+  </a>
+  <nav class="lp-nav">
+    <div class="lp-nav-links">
+      <a href="index.html#how-it-works">How it works</a>
+      <a href="index.html#competitions">Competitions</a>
+      <a href="index.html#scoring">Scoring</a>
+      <a href="index.html#leagues">Leagues</a>
+      <a href="index.html#leaderboard">Leaderboard</a>
+      <a href="Help_Center.html">Help</a>
+    </div>
+    <a class="lp-cta-btn js-get-app" href="index.html#download">Get the app</a>
+    <button class="lp-menu-toggle" id="menuToggle" aria-label="Toggle navigation menu" aria-expanded="false">
+      <svg class="lp-icon-menu" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round">
+        <line x1="3" y1="6" x2="21" y2="6"></line>
+        <line x1="3" y1="12" x2="21" y2="12"></line>
+        <line x1="3" y1="18" x2="21" y2="18"></line>
+      </svg>
+      <svg class="lp-icon-close" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round">
+        <line x1="18" y1="6" x2="6" y2="18"></line>
+        <line x1="6" y1="6" x2="18" y2="18"></line>
+      </svg>
+    </button>
+  </nav>
+  <div class="lp-mobile-menu" id="mobileMenu">
+    <a href="index.html#how-it-works" class="lp-mobile-link">How it works</a>
+    <a href="index.html#competitions" class="lp-mobile-link">Competitions</a>
+    <a href="index.html#scoring" class="lp-mobile-link">Scoring</a>
+    <a href="index.html#leagues" class="lp-mobile-link">Leagues</a>
+    <a href="index.html#leaderboard" class="lp-mobile-link">Leaderboard</a>
+    <a href="Help_Center.html" class="lp-mobile-link">Help</a>
+    <a href="#contact" class="lp-mobile-link">Contact us</a>
+  </div>
+</header>
+
+<section class="lp-page-hero">
+  <span class="lp-page-eyebrow"><span class="lp-eyebrow-dot"></span> Legal</span>
+  <h1 class="lp-page-title">Terms of Service</h1>
+  <p class="lp-page-sub">The rules for using BolaVerse — picks, leagues, points, and everything in between.</p>
+  <p class="lp-updated">Last updated: 21 July 2026</p>
+</section>
+
+<div class="lp-legal-wrap">
+  <a class="lp-back-link" href="index.html">
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M19 12H5M12 19l-7-7 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    Back to BolaVerse
+  </a>
+
+  <div class="lp-legal-toc">
+    <h3>On this page</h3>
+    <ol>
+      <li><a href="#acceptance">1. Acceptance of these Terms</a></li>
+      <li><a href="#accounts">2. Your account</a></li>
+      <li><a href="#picks">3. Picks &amp; competitions</a></li>
+      <li><a href="#not-betting">4. Not a betting product</a></li>
+      <li><a href="#ugc">5. User-generated content</a></li>
+      <li><a href="#conduct">6. Acceptable use</a></li>
+      <li><a href="#ip">7. Intellectual property</a></li>
+      <li><a href="#liability">8. Disclaimers &amp; limitation of liability</a></li>
+      <li><a href="#termination">9. Suspension &amp; termination</a></li>
+      <li><a href="#changes">10. Changes to these Terms</a></li>
+      <li><a href="#law">11. Governing law</a></li>
+      <li><a href="#contact">12. Contact</a></li>
+    </ol>
+  </div>
+
+  <div class="lp-accordion">
+    <div class="lp-acc-item">
+      <button class="lp-acc-trigger" id="acceptance" aria-expanded="false">1. Acceptance of these Terms<span class="lp-acc-icon">+</span></button>
+      <div class="lp-acc-panel"><div class="lp-acc-panel-inner">
+        <p>By creating an account or otherwise using BolaVerse (the "App"), you agree to be bound by these Terms of Service ("Terms"). If you do not agree to these Terms, please do not use the App.</p>
+        <p>These Terms apply to every visitor, registered user, and anyone else who accesses the App.</p>
+      </div></div>
+    </div>
+
+    <div class="lp-acc-item">
+      <button class="lp-acc-trigger" id="accounts" aria-expanded="false">2. Your account<span class="lp-acc-icon">+</span></button>
+      <div class="lp-acc-panel"><div class="lp-acc-panel-inner">
+        <p>You need an account to make Picks, join a League, or appear on a Leaderboard. You're responsible for keeping your login details secure and for all activity that happens under your account.</p>
+        <p>You can delete your account at any time from Profile → Settings → Delete Account. Once confirmed, your account and associated data are permanently deleted, in line with our <a href="privacy-policy.html">Privacy Policy</a>.</p>
+      </div></div>
+    </div>
+
+    <div class="lp-acc-item">
+      <button class="lp-acc-trigger" id="picks" aria-expanded="false">3. Picks &amp; competitions<span class="lp-acc-icon">+</span></button>
+      <div class="lp-acc-panel"><div class="lp-acc-panel-inner">
+        <p>All Picks, Leagues, Competitions, Points, and rankings on BolaVerse are provided for entertainment purposes only. BolaVerse does not facilitate real-money gambling. Points and rankings are virtual and have no monetary value.</p>
+        <p>Picks can be changed as many times as you like before kickoff. Once a match starts, your Pick for that match is locked and cannot be edited. Points are calculated using our PIA (Prediction Impact Assessment) scoring system as described in the <a href="Help_Center.html">Help Center</a>.</p>
+      </div></div>
+    </div>
+
+    <div class="lp-acc-item">
+      <button class="lp-acc-trigger" id="not-betting" aria-expanded="false">4. Not a betting product<span class="lp-acc-icon">+</span></button>
+      <div class="lp-acc-panel"><div class="lp-acc-panel-inner">
+        <p>BolaVerse is a social Picks game, not a betting, gambling, or wagering product. There is no entry fee to play, no cash prizes, and no way to deposit, withdraw, or exchange money within the App in connection with Picks, Leagues, or the Leaderboard.</p>
+      </div></div>
+    </div>
+
+    <div class="lp-acc-item">
+      <button class="lp-acc-trigger" id="ugc" aria-expanded="false">5. User-generated content<span class="lp-acc-icon">+</span></button>
+      <div class="lp-acc-panel"><div class="lp-acc-panel-inner">
+        <p>You may be able to create or share content on BolaVerse, such as a League name, a profile picture, or a display name. You retain ownership of the content you create and share on BolaVerse.</p>
+        <p>By posting content, you grant BolaVerse a limited, non-exclusive licence to display that content within the App, solely to operate and provide the service to you and other users (for example, showing your League name to members of that League).</p>
+      </div></div>
+    </div>
+
+    <div class="lp-acc-item">
+      <button class="lp-acc-trigger" id="conduct" aria-expanded="false">6. Acceptable use<span class="lp-acc-icon">+</span></button>
+      <div class="lp-acc-panel"><div class="lp-acc-panel-inner">
+        <p>When using BolaVerse, you agree not to:</p>
+        <ul>
+          <li>Create fake accounts, impersonate someone else, or manipulate Picks, Leagues, or the Leaderboard;</li>
+          <li>Upload content that is illegal, hateful, harassing, or infringes someone else's rights;</li>
+          <li>Attempt to interfere with, disrupt, or reverse-engineer the App or its scoring system;</li>
+          <li>Use BolaVerse to facilitate real-money betting or gambling of any kind.</li>
+        </ul>
+      </div></div>
+    </div>
+
+    <div class="lp-acc-item">
+      <button class="lp-acc-trigger" id="ip" aria-expanded="false">7. Intellectual property<span class="lp-acc-icon">+</span></button>
+      <div class="lp-acc-panel"><div class="lp-acc-panel-inner">
+        <p>The BolaVerse name, logo, design, and underlying software (including the PIA scoring system) belong to BolaVerse and are protected by applicable intellectual property laws. Team names, competition names, and crests referenced in the App belong to their respective owners and are used for identification purposes only.</p>
+      </div></div>
+    </div>
+
+    <div class="lp-acc-item">
+      <button class="lp-acc-trigger" id="liability" aria-expanded="false">8. Disclaimers &amp; limitation of liability<span class="lp-acc-icon">+</span></button>
+      <div class="lp-acc-panel"><div class="lp-acc-panel-inner">
+        <p>To the fullest extent permitted by law, BolaVerse is provided "as is" without warranties of any kind. BolaVerse shall not be liable for any indirect, incidental, or consequential damages arising from the use of the app.</p>
+        <p>Because BolaVerse is currently free to use, this limitation applies regardless of any amount paid, since no payment is required to access the App.</p>
+      </div></div>
+    </div>
+
+    <div class="lp-acc-item">
+      <button class="lp-acc-trigger" id="termination" aria-expanded="false">9. Suspension &amp; termination<span class="lp-acc-icon">+</span></button>
+      <div class="lp-acc-panel"><div class="lp-acc-panel-inner">
+        <p>We may suspend or terminate your access to BolaVerse if we reasonably believe you've violated these Terms, for example by cheating, abusing other users, or misusing the App. You can also stop using BolaVerse and delete your account at any time.</p>
+      </div></div>
+    </div>
+
+    <div class="lp-acc-item">
+      <button class="lp-acc-trigger" id="changes" aria-expanded="false">10. Changes to these Terms<span class="lp-acc-icon">+</span></button>
+      <div class="lp-acc-panel"><div class="lp-acc-panel-inner">
+        <p>We may update these Terms from time to time, for example as BolaVerse grows or its legal structure changes. If we make material changes, we'll let you know in the App or by email before they take effect. Continuing to use BolaVerse after changes take effect means you accept the updated Terms.</p>
+      </div></div>
+    </div>
+
+    <div class="lp-acc-item">
+      <button class="lp-acc-trigger" id="law" aria-expanded="false">11. Governing law<span class="lp-acc-icon">+</span></button>
+      <div class="lp-acc-panel"><div class="lp-acc-panel-inner">
+        <p>BolaVerse is currently operated by an individual based in France, and is not yet incorporated as a company. These Terms, and any dispute arising out of or in connection with them, are therefore governed by the laws of France, without regard to conflict-of-law principles.</p>
+        <p>If BolaVerse is incorporated in another jurisdiction in the future, this section will be updated to reflect the new governing law and jurisdiction. This section is provided for general information and isn't a substitute for advice from a qualified lawyer about your specific situation.</p>
+      </div></div>
+    </div>
+
+    <div class="lp-acc-item">
+      <button class="lp-acc-trigger" id="contact" aria-expanded="false">12. Contact<span class="lp-acc-icon">+</span></button>
+      <div class="lp-acc-panel"><div class="lp-acc-panel-inner">
+        <p>Questions about these Terms? Reach us at <a href="mailto:support@bolaverse.com">support@bolaverse.com</a>.</p>
+      </div></div>
+    </div>
+  </div>
+
+  <p style="margin-top:36px; font-size:12.5px; color:var(--text-dimmer); line-height:1.7;">
+    Throughout BolaVerse and these Terms, we use consistent terminology: <strong>Pick</strong> / <strong>Picks</strong> (not "Prediction"), <strong>League</strong>, <strong>Competition</strong>, <strong>Points</strong>, and <strong>Leaderboard</strong>.
+  </p>
+</div>
+
+
+<footer class="lp-footer" id="contact">
+  <div class="lp-footer-container">
+    <div class="lp-footer-contact">
+      <h3 class="lp-footer-contact-title">Contact us</h3>
+      <p class="lp-footer-contact-sub">Got a question? Message us on WhatsApp.</p>
+      <a href="https://wa.me/33782038520" target="_blank" rel="noopener" class="lp-whatsapp-btn" aria-label="Chat on WhatsApp">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2m.01 1.67c2.2 0 4.26.86 5.82 2.42a8.23 8.23 0 0 1 2.41 5.83c0 4.54-3.7 8.24-8.24 8.24-1.48 0-2.93-.4-4.2-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.19 8.19 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.24-8.24m4.52 11.66c-.25-.13-1.47-.72-1.7-.81-.23-.08-.39-.13-.56.13-.17.25-.64.81-.79.97-.14.17-.29.19-.54.06-.25-.13-1.06-.39-2.02-1.24-.75-.67-1.25-1.49-1.4-1.74-.15-.25-.02-.39.11-.51.11-.11.25-.29.37-.43.13-.15.17-.25.25-.42.08-.17.04-.31-.02-.44-.06-.13-.56-1.35-.77-1.85-.2-.49-.41-.42-.56-.43h-.48c-.17 0-.44.06-.67.31-.23.25-.88.86-.88 2.1 0 1.24.9 2.44 1.03 2.61.13.17 1.78 2.72 4.31 3.81.6.26 1.07.42 1.44.53.61.2 1.16.17 1.6.1.49-.07 1.47-.6 1.68-1.18.21-.58.21-1.07.14-1.18-.06-.1-.22-.17-.47-.3z"/>
+        </svg>
+        <span>Chat on WhatsApp</span>
+      </a>
+      <h4 class="lp-footer-social-title">Follow us on social media</h4>
+      <div class="lp-footer-social-row">
+        <a href="https://instagram.com/bolaverse.app" target="_blank" rel="noopener" class="lp-footer-social-btn" aria-label="BolaVerse on Instagram">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+          </svg>
+        </a>
+        <a href="https://facebook.com/profile.php?id=61590246917214" target="_blank" rel="noopener" class="lp-footer-social-btn" aria-label="BolaVerse on Facebook">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+          </svg>
+        </a>
+        <a href="https://tiktok.com/@bolaverse.app" target="_blank" rel="noopener" class="lp-footer-social-btn" aria-label="BolaVerse on TikTok">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1v-3.5a6.37 6.37 0 0 0-.79-.05A6.34 6.34 0 0 0 3 15.28a6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.34-6.34V9.08a8.21 8.21 0 0 0 4.91 1.63V7.26a4.84 4.84 0 0 1-1-.57z"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+    <div class="lp-footer-divider"></div>
+    <div class="lp-footer-cols">
+      <div class="lp-footer-col">
+        <h4>PRODUCT</h4>
+        <a href="index.html#how-it-works">How it works</a>
+        <a href="index.html#competitions">Competitions</a>
+        <a href="index.html#scoring">Scoring</a>
+        <a href="index.html#leagues">Leagues</a>
+        <a href="index.html#leaderboard">Leaderboard</a>
+      </div>
+      <div class="lp-footer-col">
+        <h4>SUPPORT</h4>
+        <a href="Help_Center.html">Help Center</a>
+        <a href="https://wa.me/33782038520" target="_blank" rel="noopener">Contact us</a>
+      </div>
+      <div class="lp-footer-col">
+        <h4>LEGAL</h4>
+        <a href="privacy-policy.html">Privacy Policy</a>
+        <a href="terms-of-service.html">Terms of Service</a>
+      </div>
+    </div>
+    <div class="lp-footer-divider"></div>
+    <div class="lp-footer-bottom">
+      <p>© 2026 BolaVerse. One game. One passion. One universe.</p>
+      <p>Made for the SEA football faithful.</p>
+      <p>Google Play and the Google Play logo are trademarks of Google LLC.</p>
+      <p>Apple and the Apple logo are trademarks of Apple Inc. App Store is a service mark of Apple Inc.</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+  (function () {
+    // Allow URL parameter for testing: ?preview_banner=safari, ?preview_banner=ios, ?preview_banner=ios_other, ?preview_banner=android
+    var params = new URLSearchParams(window.location.search);
+    var preview = params.get('preview_banner');
+
+    if (!preview) {
+      try {
+        if (sessionStorage.getItem('bv_app_banner_dismissed') === '1') return;
+      } catch (e) {}
+    }
+
+    var ua = (navigator.userAgent || navigator.vendor || '').toLowerCase();
+    var isIOS = /iphone|ipad|ipod/.test(ua) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+    var isAndroid = /android/.test(ua);
+
+    // Non-Safari browsers on iOS contain crios, fxios, edgios, opt/, etc.
+    var isIOSSafari = isIOS && /safari/.test(ua) && /version\//.test(ua) && !/crios|fxios|edgios|opt\/|duckduckgo|instagram|fb_iab/.test(ua);
+
+    var banner = document.getElementById('appInstallBanner');
+    var bannerSub = document.getElementById('appBannerSub');
+    var bannerBtn = document.getElementById('appBannerBtn');
+    var closeBtn = document.getElementById('appBannerClose');
+
+    if (!banner || !bannerSub || !bannerBtn) return;
+
+    if (closeBtn) {
+      closeBtn.addEventListener('click', function () {
+        banner.style.display = 'none';
+        try {
+          sessionStorage.setItem('bv_app_banner_dismissed', '1');
+        } catch (e) {}
+      });
+    }
+
+    // 1. Safari mode: White bar with blue View button (mockup #1)
+    var showSafari = preview === 'safari' || (preview === 'ios' && isIOSSafari) || (isIOSSafari && preview !== 'ios_other' && preview !== 'android');
+
+    // 2. iOS other browsers: Dark bar with lime Get button (mockup #2)
+    var showIOSOther = preview === 'ios_other' || (preview === 'ios' && !isIOSSafari) || (isIOS && !isIOSSafari && !showSafari);
+
+    // 3. Android every browser: Dark bar with lime Install button (mockup #3)
+    var showAndroid = preview === 'android' || isAndroid;
+
+    if (showSafari) {
+      banner.classList.add('theme-safari');
+      bannerSub.textContent = 'Open in the App Store';
+      bannerBtn.textContent = 'View';
+      bannerBtn.href = 'https://apps.apple.com/app/bolaverse/id6793082058';
+      banner.style.display = 'flex';
+    } else if (showIOSOther) {
+      banner.classList.remove('theme-safari');
+      bannerSub.textContent = 'Free on the App Store';
+      bannerBtn.textContent = 'Get';
+      bannerBtn.href = 'https://apps.apple.com/app/bolaverse/id6793082058';
+      banner.style.display = 'flex';
+    } else if (showAndroid) {
+      banner.classList.remove('theme-safari');
+      bannerSub.textContent = 'Free on Google Play';
+      bannerBtn.textContent = 'Install';
+      bannerBtn.href = 'https://play.google.com/store/apps/details?id=com.bolaverse.app';
+      banner.style.display = 'flex';
+    }
+  })();
+
+  // Accordion
+  document.querySelectorAll('.lp-acc-trigger').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var item = btn.closest('.lp-acc-item');
+      var panel = item.querySelector('.lp-acc-panel');
+      var isOpen = item.classList.contains('open');
+      item.classList.toggle('open', !isOpen);
+      panel.style.maxHeight = !isOpen ? panel.scrollHeight + 'px' : null;
+      btn.setAttribute('aria-expanded', String(!isOpen));
+    });
+  });
+
+  // Smart "Get the app" button: Mac -> App Store search, Windows -> Google Play search
+  function detectStore() {
+    var ua = (navigator.userAgent || navigator.vendor || '').toLowerCase();
+    var platform = (navigator.platform || '').toLowerCase();
+    var isIOS = /iphone|ipad|ipod/.test(ua);
+    var isMac = /mac/.test(platform) || /macintosh/.test(ua);
+    var isWindows = /win/.test(platform) || /windows/.test(ua);
+    var isAndroid = /android/.test(ua);
+    if (isIOS || isMac) return 'ios';
+    if (isAndroid || isWindows) return 'android';
+    return 'unknown';
+  }
+
+  function goToStore() {
+    var store = detectStore();
+    if (store === 'ios') {
+      window.location.href = 'https://apps.apple.com/app/bolaverse/id6793082058';
+    } else if (store === 'android') {
+      window.location.href = 'https://play.google.com/store/apps/details?id=com.bolaverse.app';
+    } else {
+      window.location.href = (window.location.pathname.indexOf('index.html') === -1 && !window.location.pathname.endsWith('/'))
+        ? 'index.html#download' : '#download';
+    }
+  }
+
+  document.querySelectorAll('.js-get-app').forEach(function (btn) {
+    btn.addEventListener('click', function (e) {
+      e.preventDefault();
+      goToStore();
+    });
+  });
+
+  // Help center search filter (only present on Help_Center.html)
+  var helpSearch = document.getElementById('helpSearch');
+  if (helpSearch) {
+    var items = Array.prototype.slice.call(document.querySelectorAll('.lp-acc-item'));
+    var cats = Array.prototype.slice.call(document.querySelectorAll('.lp-acc-cat'));
+    var emptyState = document.getElementById('helpSearchEmpty');
+    helpSearch.addEventListener('input', function () {
+      var q = helpSearch.value.trim().toLowerCase();
+      var anyVisible = false;
+      items.forEach(function (item) {
+        var text = item.textContent.toLowerCase();
+        var match = q === '' || text.indexOf(q) !== -1;
+        item.style.display = match ? '' : 'none';
+        if (match) anyVisible = true;
+      });
+      cats.forEach(function (cat) {
+        var acc = cat.nextElementSibling;
+        var hasVisible = q === '' || (acc && acc.querySelector('.lp-acc-item:not([style*="display: none"])'));
+        cat.style.display = hasVisible ? '' : 'none';
+        if (acc) acc.style.display = hasVisible ? '' : 'none';
+      });
+      emptyState.style.display = anyVisible || q === '' ? 'none' : 'block';
+    });
+  }
+
+</script>
+
+<script>
+(function () {
+    // Allow URL parameter for testing: ?preview_banner=ios or ?preview_banner=android
+    var params = new URLSearchParams(window.location.search);
+    var preview = params.get('preview_banner');
+
+    if (!preview) {
+      try {
+        if (sessionStorage.getItem('bv_app_banner_dismissed') === '1') return;
+      } catch (e) {}
+    }
+
+    var ua = (navigator.userAgent || navigator.vendor || '').toLowerCase();
+    var isIOS = /iphone|ipad|ipod/.test(ua);
+    var isAndroid = /android/.test(ua);
+
+    // On iOS Safari, Apple's native Smart App Banner handles this via <meta name="apple-itunes-app">.
+<link rel="icon" href="favicon.ico" sizes="48x48" />
+<link rel="icon" href="favicon.png" type="image/png" sizes="96x96" />
+<link rel="icon" href="favicon-48x48.png" type="image/png" sizes="48x48" />
+<link rel="icon" href="favicon-32x32.png" type="image/png" sizes="32x32" />
+<link rel="icon" href="favicon-16x16.png" type="image/png" sizes="16x16" />
+<link rel="apple-touch-icon" href="apple-touch-icon.png" sizes="180x180" />
+<link rel="manifest" href="site.webmanifest" />
+    // Non-Safari browsers on iOS contain crios, fxios, edgios, opt/, etc.
+    var isIOSSafari = isIOS && /safari/.test(ua) && /version\//.test(ua) && !/crios|fxios|edgios|opt\/|duckduckgo|instagram|fb_iab/.test(ua);
+
+    var banner = document.getElementById('appInstallBanner');
+    var bannerSub = document.getElementById('appBannerSub');
+    var bannerBtn = document.getElementById('appBannerBtn');
+    var closeBtn = document.getElementById('appBannerClose');
+
+    if (!banner || !bannerSub || !bannerBtn) return;
+
+    if (closeBtn) {
+      closeBtn.addEventListener('click', function () {
+        banner.style.display = 'none';
+        try {
+          sessionStorage.setItem('bv_app_banner_dismissed', '1');
+        } catch (e) {}
+      });
+    }
+
+    if (preview === 'ios' || (isIOS && !isIOSSafari)) {
+      bannerSub.textContent = 'Free on the App Store';
+      bannerBtn.textContent = 'Get';
+      bannerBtn.href = 'https://apps.apple.com/app/bolaverse/id6793082058';
+      banner.style.display = 'flex';
+    } else if (preview === 'android' || isAndroid) {
+      bannerSub.textContent = 'Free on Google Play';
+      bannerBtn.textContent = 'Install';
+      bannerBtn.href = 'https://play.google.com/store/apps/details?id=com.bolaverse.app';
+      banner.style.display = 'flex';
+    }
+  })();
+
+  
+  // Mobile dropdown navigation toggle
+  var menuToggle = document.getElementById('menuToggle');
+  var mobileMenu = document.getElementById('mobileMenu');
+
+  if (menuToggle && mobileMenu) {
+    menuToggle.addEventListener('click', function (e) {
+      e.stopPropagation();
+      var isOpen = mobileMenu.classList.toggle('is-open');
+      menuToggle.classList.toggle('is-active', isOpen);
+      menuToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+    });
+
+    mobileMenu.querySelectorAll('.lp-mobile-link').forEach(function (link) {
+      link.addEventListener('click', function () {
+        mobileMenu.classList.remove('is-open');
+        menuToggle.classList.remove('is-active');
+        menuToggle.setAttribute('aria-expanded', 'false');
+      });
+    });
+
+    document.addEventListener('click', function (e) {
+      if (!mobileMenu.contains(e.target) && !menuToggle.contains(e.target)) {
+        mobileMenu.classList.remove('is-open');
+        menuToggle.classList.remove('is-active');
+        menuToggle.setAttribute('aria-expanded', 'false');
+      }
+    });
+
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape') {
+        mobileMenu.classList.remove('is-open');
+        menuToggle.classList.remove('is-active');
+        menuToggle.setAttribute('aria-expanded', 'false');
+      }
+    });
+  }
+</script>
+</body>
+</html>
