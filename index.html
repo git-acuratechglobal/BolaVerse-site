@@ -472,7 +472,7 @@
     font-size: clamp(11px, 3.1vw, 14px); color: var(--text-dim);
     display: inline-flex; align-items: center; white-space: nowrap;
   }
-  .lp-trust-point b { color: var(--text); }
+  .lp-trust-point b { color: #ffffff; font-weight: 700; }
 
   /* ---------- competitions ---------- */
   .lp-comp-eyebrow {
@@ -622,10 +622,10 @@
     display: flex; align-items: center; justify-content: center; gap: 0; flex-shrink: 0;
   }
   .lp-score-box {
-    width: 39px; height: 39px; border-radius: 8px;
+    width: 42px; height: 50px; border-radius: 10px;
     background: rgba(255, 255, 255, 0.04); border: 1px solid rgba(255, 255, 255, 0.14);
     display: flex; align-items: center; justify-content: center;
-    font-family: 'JetBrains Mono', monospace; font-size: 18px; font-weight: 700; color: #7E8584;
+    font-family: 'JetBrains Mono', monospace; font-size: 20px; font-weight: 700; color: #7E8584;
     cursor: pointer; user-select: none; transition: all .12s ease;
   }
   .lp-score-box.is-filled {
@@ -636,18 +636,18 @@
   }
   .lp-score-box:active { transform: scale(0.92); }
   .lp-match-vs {
-    width: 26px; text-align: center; font-size: 11px; font-weight: 600; color: #7E8584; text-transform: lowercase;
+    width: 26px; text-align: center; font-size: 11.5px; font-weight: 600; color: #7E8584; text-transform: lowercase;
   }
 
-  /* Three odds pills (55 x 23 px with 6px between them) */
+  /* Three odds pills */
   .lp-match-chips {
-    display: flex; justify-content: center; gap: 6px;
+    display: flex; justify-content: center; gap: 8px; margin-top: 2px;
   }
   .lp-match-chip {
-    width: 55px; height: 23px; box-sizing: border-box;
+    width: 62px; height: 29px; box-sizing: border-box;
     display: flex; align-items: center; justify-content: center;
     background: #1b2320; border-radius: 999px;
-    font-size: 10px; font-weight: 700; color: #7E8584;
+    font-size: 11px; font-weight: 700; color: #7E8584;
     transition: all .15s ease; user-select: none;
   }
   .lp-match-chip.is-picked {
@@ -1308,10 +1308,10 @@
       <p class="lp-hero-sub">Turn every football match into a challenge. Make your picks before kickoff, battle your friends and prove who knows football best across Southeast Asia's biggest competitions and the Premier League.</p>
       <div class="lp-store-row-inline">
         <a class="lp-store-badge-link" href="https://apps.apple.com/app/bolaverse/id6793082058" target="_blank" rel="noopener">
-          <img src="badge_appstore.png" alt="Download on the App Store" class="lp-store-badge-img">
+          <img src="badge_appstore.svg" alt="Download on the App Store" class="lp-store-badge-img">
         </a>
         <a class="lp-store-badge-link" href="https://play.google.com/store/apps/details?id=com.bolaverse.app" target="_blank" rel="noopener">
-          <img src="badge_googleplay.png" alt="GET IT ON Google Play" class="lp-store-badge-img">
+          <img src="badge_googleplay.svg" alt="GET IT ON Google Play" class="lp-store-badge-img">
         </a>
       </div>
     </div>
@@ -1337,9 +1337,9 @@
       Built for football fans, not gambling.
     </span>
     <div class="lp-trust-points">
-      <span class="lp-trust-point">100% Free to Play</span>
-      <span class="lp-trust-point">No Money Involved</span>
-      <span class="lp-trust-point">Play with Friends</span>
+      <span class="lp-trust-point"><b>100%</b> Free to Play</span>
+      <span class="lp-trust-point"><b>No</b> Money Involved</span>
+      <span class="lp-trust-point">Play with <b>Friends</b></span>
     </div>
   </div>
 </div>
@@ -1722,10 +1722,10 @@
   <p>BolaVerse is live across Indonesia, Malaysia and beyond. Grab the app and start making your picks before the next kickoff.</p>
   <div class="lp-store-row">
         <a class="lp-store-badge-link" href="https://apps.apple.com/app/bolaverse/id6793082058" target="_blank" rel="noopener">
-          <img src="badge_appstore.png" alt="Download on the App Store" class="lp-store-badge-img">
+          <img src="badge_appstore.svg" alt="Download on the App Store" class="lp-store-badge-img">
         </a>
         <a class="lp-store-badge-link" href="https://play.google.com/store/apps/details?id=com.bolaverse.app" target="_blank" rel="noopener">
-          <img src="badge_googleplay.png" alt="GET IT ON Google Play" class="lp-store-badge-img">
+          <img src="badge_googleplay.svg" alt="GET IT ON Google Play" class="lp-store-badge-img">
         </a>
       </div>
   <p class="lp-cta-note">No credit card required. No real-money gambling, ever.</p>
