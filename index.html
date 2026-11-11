@@ -1281,7 +1281,7 @@
       <span class="lp-app-banner-sub" id="appBannerSub">Free on Google Play</span>
     </div>
   </div>
-  <a class="lp-app-banner-btn" id="appBannerBtn" href="#" role="button">INSTALL</a>
+  <a class="lp-app-banner-btn" id="appBannerBtn" href="#" role="button">OPEN</a>
 </aside>
 
 <header class="lp-header">
@@ -2275,9 +2275,9 @@
     // Suppress custom banner on iOS to prevent duplicate banners.
     if (isIOS) return;
 
-    // Check if dismissed in this session
+    // Check if dismissed
     try {
-      if (sessionStorage.getItem('bv_banner_dismissed') === '1') return;
+      if (localStorage.getItem('bv_banner_dismissed') === '1' || sessionStorage.getItem('bv_banner_dismissed') === '1') return;
     } catch (e) {}
 
     // Allow previewing with ?banner=android
@@ -2311,13 +2311,14 @@
     }
 
     try {
-      if (localStorage.getItem('bv_android_installed') === 'true') {
-        renderBannerState(true);
-      } else {
+      if (localStorage.getItem('bv_android_installed') === 'false') {
         renderBannerState(false);
+      } else {
+        // Default to OPEN so installed users see OPEN immediately
+        renderBannerState(true);
       }
     } catch (e) {
-      renderBannerState(false);
+      renderBannerState(true);
     }
 
     // Display banner at the top of the page
@@ -2363,7 +2364,10 @@
     if (bannerClose) {
       bannerClose.addEventListener('click', function () {
         banner.style.display = 'none';
-        try { sessionStorage.setItem('bv_banner_dismissed', '1'); } catch (e) {}
+        try {
+          localStorage.setItem('bv_banner_dismissed', '1');
+          sessionStorage.setItem('bv_banner_dismissed', '1');
+        } catch (e) {}
       });
     }
 
