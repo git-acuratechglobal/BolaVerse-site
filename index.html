@@ -2214,7 +2214,7 @@
       var isInstalled = false;
       try { isInstalled = localStorage.getItem('bv_android_installed') === 'true'; } catch(e) {}
       if (isInstalled) {
-        window.location.href = 'intent://bolaverse.com/join#Intent;scheme=https;package=com.bolaverse.app;S.browser_fallback_url=https%3A%2F%2Fplay.google.com%2Fstore%2Fapps%2Fdetails%3Fid%3Dcom.bolaverse.app;end';
+        window.location.href = 'market://details?id=com.bolaverse.app';
       } else {
         window.location.href = 'market://details?id=com.bolaverse.app';
       }
@@ -2287,7 +2287,9 @@
     var PKG = 'com.bolaverse.app';
     var PLAY_STORE_URL = 'https://play.google.com/store/apps/details?id=' + PKG;
     var MARKET_URL = 'market://details?id=' + PKG;
-    var INTENT_URL = 'intent://bolaverse.com/join#Intent;scheme=https;package=' + PKG + ';S.browser_fallback_url=' + encodeURIComponent(PLAY_STORE_URL) + ';end';
+    // Intent: tries to OPEN the installed app by package name.
+    // Android OS automatically falls back to Play Store if app is not installed.
+    var INTENT_URL = 'intent://#Intent;action=android.intent.action.MAIN;category=android.intent.category.LAUNCHER;package=' + PKG + ';S.browser_fallback_url=' + encodeURIComponent(PLAY_STORE_URL) + ';end';
 
     var appIsInstalled = false;
 
@@ -2304,60 +2306,71 @@
       }
     }
 
-    // 1. Initial check: check localStorage, query param, or previous app launch
+    // 1. Determine initial state from localStorage.
+    //    'true'  = confirmed installed (from previous session) → show OPEN
+    //    'false' = confirmed not installed → show INSTALL
+    //    null    = unknown (first visit) → show INSTALL (safe default)
+    var stored = null;
+    try { stored = localStorage.getItem('bv_android_installed'); } catch (e) {}
+
+    // Allow forcing installed state via URL param (for testing)
     var forceInstalled = window.location.search.indexOf('installed=1') !== -1 || window.location.search.indexOf('app=1') !== -1;
     if (forceInstalled) {
+      stored = 'true';
       try { localStorage.setItem('bv_android_installed', 'true'); } catch (e) {}
     }
 
-    try {
-      if (localStorage.getItem('bv_android_installed') === 'false') {
-        renderBannerState(false);
-      } else {
-        // Default to OPEN so installed users see OPEN immediately
-        renderBannerState(true);
-      }
-    } catch (e) {
-      renderBannerState(true);
-    }
+    // Show OPEN only if localStorage explicitly says installed; otherwise INSTALL
+    renderBannerState(stored === 'true');
 
     // Display banner at the top of the page
     banner.style.display = 'flex';
 
-    // 2. Query OS package manager via Web getInstalledRelatedApps API (when on production HTTPS)
+    // 2. Query OS package manager via getInstalledRelatedApps() (production HTTPS only).
+    //    This is the most accurate check — directly queries Android OS.
+    //    Requires: live HTTPS + site.webmanifest with related_applications + assetlinks.json
     if ('getInstalledRelatedApps' in navigator) {
       navigator.getInstalledRelatedApps().then(function (relatedApps) {
-        if (Array.isArray(relatedApps) && relatedApps.length > 0) {
+        if (Array.isArray(relatedApps)) {
           var found = relatedApps.some(function (app) {
             return app.id === PKG || app.platform === 'play';
           });
-          if (found) {
-            try { localStorage.setItem('bv_android_installed', 'true'); } catch (e) {}
-            renderBannerState(true);
-          }
+          // Persist accurate OS result
+          try { localStorage.setItem('bv_android_installed', found ? 'true' : 'false'); } catch (e) {}
+          renderBannerState(found);
         }
       }).catch(function () {});
     }
 
-    // 3. Banner action button click handler:
-    // Uses Android Intent which natively checks the OS:
-    // If installed -> opens the BolaVerse app directly!
-    // If not installed -> automatically opens Google Play Store!
+    // 3. Banner action button click handler.
     bannerBtn.addEventListener('click', function (e) {
       e.preventDefault();
-      
-      // Attempt to launch via Android Intent (handles both installed & fallback natively)
-      var clickedTime = Date.now();
-      window.location.href = INTENT_URL;
 
-      // Track that app was opened or installed
-      var markInstalledIfHidden = function () {
-        if (document.hidden || Date.now() - clickedTime > 1500) {
-          try { localStorage.setItem('bv_android_installed', 'true'); } catch (e) {}
-          renderBannerState(true);
-        }
-      };
-      setTimeout(markInstalledIfHidden, 1000);
+      if (appIsInstalled) {
+        // App is confirmed installed → open it via Android Intent.
+        // Fallback_url handles the case where the app was uninstalled since last check.
+        window.location.href = INTENT_URL;
+      } else {
+        // App is NOT installed → go to Play Store.
+        window.location.href = MARKET_URL;
+
+        // When user returns from Play Store, re-check installation status.
+        var checkAfterReturn = function () {
+          if (!document.hidden) {
+            if ('getInstalledRelatedApps' in navigator) {
+              navigator.getInstalledRelatedApps().then(function (relatedApps) {
+                if (Array.isArray(relatedApps)) {
+                  var found = relatedApps.some(function (a) { return a.id === PKG || a.platform === 'play'; });
+                  try { localStorage.setItem('bv_android_installed', found ? 'true' : 'false'); } catch (e) {}
+                  renderBannerState(found);
+                }
+              }).catch(function () {});
+            }
+            document.removeEventListener('visibilitychange', checkAfterReturn);
+          }
+        };
+        document.addEventListener('visibilitychange', checkAfterReturn);
+      }
     });
 
     // 4. Banner close button
@@ -2371,7 +2384,7 @@
       });
     }
 
-    // 5. Visibility change re-verification
+    // 5. Visibility change re-check (when user switches back to this tab)
     document.addEventListener('visibilitychange', function () {
       if (!document.hidden && 'getInstalledRelatedApps' in navigator) {
         navigator.getInstalledRelatedApps().then(function (relatedApps) {
@@ -2379,11 +2392,13 @@
             var found = relatedApps.some(function (app) {
               return app.id === PKG || app.platform === 'play';
             });
+            try { localStorage.setItem('bv_android_installed', found ? 'true' : 'false'); } catch (e) {}
             renderBannerState(found);
           }
         }).catch(function () {});
       }
     });
+
   })();
 
 </script>
