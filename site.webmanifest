@@ -15,5 +15,13 @@
   ],
   "theme_color": "#010a09",
   "background_color": "#010a09",
-  "display": "standalone"
+  "display": "standalone",
+  "related_applications": [
+    {
+      "platform": "play",
+      "id": "com.bolaverse.app",
+      "url": "https://play.google.com/store/apps/details?id=com.bolaverse.app"
+    }
+  ],
+  "prefer_related_applications": false
 }

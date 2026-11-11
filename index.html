@@ -128,6 +128,9 @@
     white-space: nowrap;
     flex-shrink: 0;
     transition: transform .15s ease, background .15s ease;
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
   }
     /* Safari style (white bar with blue View button matching Apple Smart App Banner) */
   .lp-app-banner.theme-safari {
@@ -189,13 +192,13 @@
   .lp-nav a:hover { color: #ffffff; }
   .lp-nav-links { display: flex; align-items: center; gap: 22px; }
   .lp-cta-btn {
-    background: #2eb356; color: #000000; font-weight: 700; font-size: 13.5px;
+    background: var(--lime); color: var(--ink); font-weight: 700; font-size: 13.5px;
     padding: 10px 18px; border-radius: 999px; text-decoration: none; white-space: nowrap;
-    border: 1px solid #2eb356;
+    border: 1px solid var(--lime);
     transition: transform .15s ease, box-shadow .15s ease;
   }
-  .lp-cta-btn:hover { transform: translateY(-1px); box-shadow: 0 8px 24px rgba(46, 179, 86, 0.4); }
-  .lp-nav .lp-cta-btn, .lp-nav .lp-cta-btn:hover { color: #000000; }
+  .lp-cta-btn:hover { transform: translateY(-1px); box-shadow: 0 8px 24px rgba(163,227,77,0.25); }
+  .lp-nav .lp-cta-btn, .lp-nav .lp-cta-btn:hover { color: var(--ink); }
   /* Mobile menu button & dropdown window */
   .lp-menu-toggle {
     display: none;
@@ -470,14 +473,15 @@
   }
   .lp-trust-point {
     font-size: clamp(11px, 3.1vw, 14px); color: var(--text-dim);
-    display: inline-block; white-space: nowrap;
+    display: inline-block; white-space: nowrap; font-weight: 500;
   }
-  .lp-trust-point b { color: #ffffff; font-weight: 700; }
+  .lp-trust-point .lp-trust-hi,
+  .lp-trust-point b { color: #ffffff; font-weight: inherit; }
 
   /* ---------- competitions ---------- */
   .lp-comp-eyebrow {
-    font-size: 13px; font-weight: 700; color: var(--teal);
-    letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 8px;
+    font-size: 14.5px; font-weight: 700; color: var(--teal);
+    letter-spacing: 1.6px; text-transform: uppercase; margin-bottom: 10px;
   }
   .lp-comp-grid {
     display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px;
@@ -564,9 +568,9 @@
     display: flex; gap: 10px; margin-bottom: 12px;
   }
   .lp-comp-tab {
-    flex: 1; display: flex; align-items: center; justify-content: center; gap: 9px;
+    flex: 1; display: flex; align-items: center; justify-content: flex-start; gap: 9px;
     background: #061411; border: 1.5px solid rgba(255,255,255,0.08); border-radius: 14px;
-    padding: 13px 14px; min-height: 50px; font-size: 13.5px; font-weight: 700; color: var(--text-dim);
+    padding: 13px 18px; min-height: 50px; font-size: 13.5px; font-weight: 700; color: var(--text-dim);
     cursor: pointer; transition: all .15s ease;
   }
   .lp-comp-tab:hover {
@@ -723,6 +727,12 @@
   .lp-leaderboard-sec {
     padding: 80px 0 60px;
     position: relative;
+    border-top: 1px solid var(--border);
+  }
+  .lp-leaderboard-sec .lp-section-head {
+    max-width: 640px;
+    margin: 0 auto 32px;
+    text-align: left;
   }
   .lp-lb-container {
     margin: 0 auto;
@@ -730,7 +740,7 @@
     background: rgba(255, 255, 255, 0.028);
     border: 1px solid rgba(255, 255, 255, 0.08);
     border-radius: 24px;
-    padding: 32px 28px;
+    padding: 28px 24px;
     box-shadow: 0 12px 36px rgba(0, 0, 0, 0.45);
   }
   .lp-lb-head {
@@ -932,6 +942,20 @@
     border: 1.5px solid rgba(255, 255, 255, 0.25);
     box-shadow: 0 0 8px rgba(0,0,0,0.3);
   }
+  .lp-lb-avatar-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    border-radius: 50%;
+  }
+  .lp-podium-medal {
+    width: 28px;
+    height: 24px;
+    object-fit: contain;
+    display: block;
+    margin: 0 auto;
+  }
   .lp-lb-avatar svg {
     width: 17px;
     height: 17px;
@@ -1030,7 +1054,18 @@
 
   /* ---------- Public leagues cards ---------- */
   .lp-pub-list {
-    display: flex; flex-direction: column; gap: 12px;
+    display: flex; flex-direction: column; gap: 14px;
+  }
+  .lp-pub-card-wrap {
+    width: 100%; border-radius: 16px; overflow: hidden;
+    transition: transform .2s ease, box-shadow .2s ease;
+  }
+  .lp-pub-card-wrap:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+  }
+  .lp-pub-card-img {
+    width: 100%; height: auto; display: block; border-radius: 16px;
   }
   .lp-pub-card {
     background: rgba(255, 255, 255, 0.03);
@@ -1205,7 +1240,7 @@
   @media (max-width: 600px) {
     section { padding: 48px 16px; }
     .wrap { padding-left: 0; padding-right: 0; }
-    .lp-comp-tab { padding: 12px 10px; min-height: 48px; font-size: 13px; }
+    .lp-comp-tab { justify-content: flex-start; padding: 12px 14px; min-height: 48px; font-size: 13px; }
     .lp-tab-dots { margin-bottom: 20px; }
     .lp-league-card { padding: 18px 12px; border-radius: 16px; }
     .lp-pub-card { padding: 12px 12px 14px; }
@@ -1239,14 +1274,14 @@
 
 <aside class="lp-app-banner" id="appInstallBanner" aria-label="App download banner" style="display:none;">
   <div class="lp-app-banner-left">
-    <button class="lp-app-banner-close" id="appBannerClose" aria-label="Close app banner">&times;</button>
-    <img src="data:image/png;base64,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" class="lp-app-banner-icon" alt="BolaVerse" />
+    <button class="lp-app-banner-close" id="appBannerClose" aria-label="Close app banner" type="button">&times;</button>
+    <img src="favicon-192x192.png" class="lp-app-banner-icon" alt="BolaVerse" width="38" height="38" />
     <div class="lp-app-banner-info">
       <strong class="lp-app-banner-title">BolaVerse</strong>
-      <span class="lp-app-banner-sub" id="appBannerSub">Free on the App Store</span>
+      <span class="lp-app-banner-sub" id="appBannerSub">Free on Google Play</span>
     </div>
   </div>
-  <a class="lp-app-banner-btn" id="appBannerBtn" href="#">Get</a>
+  <a class="lp-app-banner-btn" id="appBannerBtn" href="#" role="button">INSTALL</a>
 </aside>
 
 <header class="lp-header">
@@ -1307,11 +1342,11 @@
       <h1 class="lp-h1">One game.<br />One passion.<br /><em>One legend.</em></h1>
       <p class="lp-hero-sub">Turn every football match into a challenge. Make your picks before kickoff, battle your friends and prove who knows football best across Southeast Asia's biggest competitions and the Premier League.</p>
       <div class="lp-store-row-inline">
-        <a class="lp-store-badge-link" href="https://apps.apple.com/app/bolaverse/id6793082058" target="_blank" rel="noopener">
+        <a class="lp-store-badge-link js-appstore-link" href="https://apps.apple.com/app/bolaverse/id6793082058" target="_blank" rel="noopener">
           <img src="badge_appstore.svg" alt="Download on the App Store" class="lp-store-badge-img">
         </a>
-        <a class="lp-store-badge-link" href="https://play.google.com/store/apps/details?id=com.bolaverse.app" target="_blank" rel="noopener">
-          <img src="badge_googleplay.svg" alt="GET IT ON Google Play" class="lp-store-badge-img">
+        <a class="lp-store-badge-link js-playstore-link" href="https://play.google.com/store/apps/details?id=com.bolaverse.app" target="_blank" rel="noopener">
+          <img src="badge_googleplay.png" alt="GET IT ON Google Play" class="lp-store-badge-img">
         </a>
       </div>
     </div>
@@ -1337,9 +1372,9 @@
       Built for football fans, not gambling.
     </span>
     <div class="lp-trust-points">
-      <span class="lp-trust-point"><b>100%</b>&nbsp;Free to Play</span>
-      <span class="lp-trust-point"><b>No</b>&nbsp;Money Involved</span>
-      <span class="lp-trust-point">Play with&nbsp;<b>Friends</b></span>
+      <span class="lp-trust-point"><span class="lp-trust-hi">100%</span>&nbsp;Free to Play</span>
+      <span class="lp-trust-point"><span class="lp-trust-hi">No</span>&nbsp;Money Involved</span>
+      <span class="lp-trust-point">Play with&nbsp;<span class="lp-trust-hi">Friends</span></span>
     </div>
   </div>
 </div>
@@ -1377,7 +1412,7 @@
 <section id="competitions">
   <div class="wrap">
     <div class="lp-section-head">
-      <p class="lp-comp-eyebrow">COMPETITIONS</p>
+      <p class="lp-eyebrow-plain">COMPETITIONS</p>
       <h2 class="lp-h2">From Southeast Asia to the Premier League.</h2>
       <p class="lp-section-sub">Follow the competitions you love and never miss a matchday. Every fixture is another opportunity to earn points and move closer to the top.</p>
     </div>
@@ -1450,8 +1485,8 @@
           <div class="lp-match-card-date" id="matchDate">SUN, 21 MAR · 8:00PM</div>
           <div class="lp-match-card-main">
             <div class="lp-match-team lp-match-team-home">
-              <img id="crestA" src="images/jersey_persijap.png" alt="" class="lp-match-jersey">
-              <span class="lp-match-team-name" id="teamAName">Persijap<br>Jepara</span>
+              <img id="crestA" src="images/jersey_persija.png" alt="" class="lp-match-jersey">
+              <span class="lp-match-team-name" id="teamAName">Persija<br>Jakarta</span>
             </div>
             <div class="lp-match-score-inputs">
               <div class="lp-score-box" id="boxA" role="button" tabindex="0" aria-label="Change home score">-</div>
@@ -1580,52 +1615,11 @@
         </div>
         <p>Jump into the featured league for any competition and go up against every other picker who joined — no invite needed, just show up and pick.</p>
         <div class="lp-pub-list">
-          <div class="lp-pub-card">
-            <span class="lp-pub-badge">
-              <svg width="10" height="10" viewBox="0 0 24 24" fill="currentColor"><path d="M5 3h14v2H5V3zm2 4h10v2a5 5 0 0 1-4 4.9V17h3v2H8v-2h3v-3.1A5 5 0 0 1 7 9V7z"/></svg>
-              FEATURED LEAGUE
-            </span>
-            <div class="lp-pub-card-body">
-              <div class="lp-pub-card-left">
-                <h4 class="lp-pub-card-title">Premier League</h4>
-                <div class="lp-pub-card-sub">League Season (38 Matchda...</div>
-              </div>
-              <div class="lp-pub-card-right">
-                <div class="lp-pub-stat">
-                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" stroke="currentColor" stroke-width="1.8"/><circle cx="9" cy="7" r="3.5" stroke="currentColor" stroke-width="1.8"/><path d="M23 21v-2a4 4 0 0 0-3-3.87" stroke="currentColor" stroke-width="1.8"/><path d="M16 3.13a3.5 3.5 0 0 1 0 7.75" stroke="currentColor" stroke-width="1.8"/></svg>
-                  <span>205 Players</span>
-                </div>
-                <div class="lp-pub-stat lp-pub-timer">
-                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.8"/><path d="M12 7v5l3 2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
-                  <span>Ends In 206d 12h</span>
-                </div>
-              </div>
-            </div>
-            <button type="button" class="lp-join-btn">Join League</button>
+          <div class="lp-pub-card-wrap">
+            <img src="images/carte_premier_league.png" alt="Premier League Public League" class="lp-pub-card-img" loading="lazy">
           </div>
-
-          <div class="lp-pub-card">
-            <span class="lp-pub-badge">
-              <svg width="10" height="10" viewBox="0 0 24 24" fill="currentColor"><path d="M5 3h14v2H5V3zm2 4h10v2a5 5 0 0 1-4 4.9V17h3v2H8v-2h3v-3.1A5 5 0 0 1 7 9V7z"/></svg>
-              FEATURED LEAGUE
-            </span>
-            <div class="lp-pub-card-body">
-              <div class="lp-pub-card-left">
-                <h4 class="lp-pub-card-title">Liga 1</h4>
-                <div class="lp-pub-card-sub">League Season (34 Matchda...</div>
-              </div>
-              <div class="lp-pub-card-right">
-                <div class="lp-pub-stat">
-                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" stroke="currentColor" stroke-width="1.8"/><circle cx="9" cy="7" r="3.5" stroke="currentColor" stroke-width="1.8"/><path d="M23 21v-2a4 4 0 0 0-3-3.87" stroke="currentColor" stroke-width="1.8"/><path d="M16 3.13a3.5 3.5 0 0 1 0 7.75" stroke="currentColor" stroke-width="1.8"/></svg>
-                  <span>52 Players</span>
-                </div>
-                <div class="lp-pub-stat lp-pub-timer">
-                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.8"/><path d="M12 7v5l3 2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
-                  <span>Ends In 212d 12h</span>
-                </div>
-              </div>
-            </div>
-            <button type="button" class="lp-join-btn">Join League</button>
+          <div class="lp-pub-card-wrap">
+            <img src="images/carte_liga_1.png" alt="Liga 1 Public League" class="lp-pub-card-img" loading="lazy">
           </div>
         </div>
       </div>
@@ -1636,34 +1630,13 @@
 <!-- ==================== LEADERBOARD SECTION ==================== -->
 <section class="lp-leaderboard-sec" id="leaderboard">
   <div class="wrap">
-    <!-- Hidden SVG Gradients for Medals -->
-    <svg width="0" height="0" style="position:absolute; width:0; height:0; pointer-events:none;" aria-hidden="true">
-      <defs>
-        <linearGradient id="lb-gold-grad" x1="0%" y1="0%" x2="100%" y2="100%">
-          <stop offset="0%" stop-color="#fef08a"/>
-          <stop offset="50%" stop-color="#eab308"/>
-          <stop offset="100%" stop-color="#ca8a04"/>
-        </linearGradient>
-        <linearGradient id="lb-silver-grad" x1="0%" y1="0%" x2="100%" y2="100%">
-          <stop offset="0%" stop-color="#f8fafc"/>
-          <stop offset="50%" stop-color="#cbd5e1"/>
-          <stop offset="100%" stop-color="#94a3b8"/>
-        </linearGradient>
-        <linearGradient id="lb-bronze-grad" x1="0%" y1="0%" x2="100%" y2="100%">
-          <stop offset="0%" stop-color="#fed7aa"/>
-          <stop offset="50%" stop-color="#f97316"/>
-          <stop offset="100%" stop-color="#c2410c"/>
-        </linearGradient>
-      </defs>
-    </svg>
+    <div class="lp-section-head">
+      <p class="lp-eyebrow-plain">LEADERBOARD</p>
+      <h2 class="lp-h2">Climb to the top.</h2>
+      <p class="lp-section-sub">Every correct pick earns points. Check your rank after each matchday and show your friends, and all of Indonesia, who knows football best.</p>
+    </div>
 
     <div class="lp-lb-container">
-      <div class="lp-lb-head">
-        <p class="lp-eyebrow-plain" style="color: #2dd4be; margin-bottom: 6px;">LEADERBOARD</p>
-        <h2 style="font-size: clamp(22px, 4vw, 28px); font-weight: 800; color: #ffffff; margin: 0 0 10px; letter-spacing: -0.02em;">Climb to the top.</h2>
-        <p style="font-size: 13.5px; color: var(--text-dim); line-height: 1.55; margin: 0 0 20px;">Every correct pick earns points. Check your rank after each matchday and show your friends, and all of Indonesia, who knows football best.</p>
-      </div>
-
       <!-- Tabs: Overall / Matchday -->
       <div class="lp-lb-tabs" role="tablist">
         <button type="button" class="lp-lb-tab" id="lb-tab-overall" role="tab" aria-selected="false">Overall</button>
@@ -1721,11 +1694,11 @@
   <h2>Step into the arena.</h2>
   <p>BolaVerse is live across Indonesia, Malaysia and beyond. Grab the app and start making your picks before the next kickoff.</p>
   <div class="lp-store-row">
-        <a class="lp-store-badge-link" href="https://apps.apple.com/app/bolaverse/id6793082058" target="_blank" rel="noopener">
+        <a class="lp-store-badge-link js-appstore-link" href="https://apps.apple.com/app/bolaverse/id6793082058" target="_blank" rel="noopener">
           <img src="badge_appstore.svg" alt="Download on the App Store" class="lp-store-badge-img">
         </a>
-        <a class="lp-store-badge-link" href="https://play.google.com/store/apps/details?id=com.bolaverse.app" target="_blank" rel="noopener">
-          <img src="badge_googleplay.svg" alt="GET IT ON Google Play" class="lp-store-badge-img">
+        <a class="lp-store-badge-link js-playstore-link" href="https://play.google.com/store/apps/details?id=com.bolaverse.app" target="_blank" rel="noopener">
+          <img src="badge_googleplay.png" alt="GET IT ON Google Play" class="lp-store-badge-img">
         </a>
       </div>
   <p class="lp-cta-note">No credit card required. No real-money gambling, ever.</p>
@@ -1816,16 +1789,16 @@
       }
     },
     liga1: {
-      teamA: 'Persijap<br>Jepara',
+      teamA: 'Persija<br>Jakarta',
       teamB: 'Persib<br>Bandung',
-      crestA: 'images/jersey_persijap.png',
+      crestA: 'images/jersey_persija.png',
       crestB: 'images/jersey_persib.png',
       date: 'SUN, 21 MAR · 8:00PM',
       pts: { home: 38, draw: 36, away: 26 },
       scoreA: null,
       scoreB: null,
       messages: {
-        home: 'Persijap Jepara winning here is a bolder call, worth more if it lands.',
+        home: 'Persija Jakarta winning here is a bolder call, worth more if it lands.',
         draw: 'A draw is a bolder call here, worth more if it lands.',
         away: 'Persib Bandung are the favorites, so a win earns fewer points.'
       }
@@ -2046,29 +2019,33 @@
     ]
   };
 
-  function renderLaurelMedal(rank) {
-    var gradId = rank === 1 ? 'lb-gold-grad' : (rank === 2 ? 'lb-silver-grad' : 'lb-bronze-grad');
-    var stemColor = rank === 1 ? '#eab308' : (rank === 2 ? '#cbd5e1' : '#d97706');
-    var strokeColor = rank === 1 ? '#ca8a04' : (rank === 2 ? '#94a3b8' : '#c2410c');
-    var textColor = rank === 1 ? '#1a1400' : (rank === 2 ? '#0f172a' : '#1c0f04');
-    return '<svg width="26" height="26" viewBox="0 0 36 36" fill="none">' +
-      '<g fill="' + stemColor + '">' +
-        '<path d="M10,26 C9,20 10,14 13.5,9" fill="none" stroke="' + strokeColor + '" stroke-width="1.2" stroke-linecap="round"/>' +
-        '<path d="M13,9 C11,7 9,8 8.5,9.5 C9.2,11 11,10.5 13,9 Z"/>' +
-        '<path d="M11,13 C9,12 7.5,13.2 7.5,14.8 C8.5,15.8 10.5,15 11,13 Z"/>' +
-        '<path d="M9.8,17.5 C7.8,17 6.8,18.5 6.8,20 C7.8,21 9.8,20 9.8,17.5 Z"/>' +
-        '<path d="M10.2,22 C8.5,22 8,23.5 8.5,25 C9.5,25.5 11,24 10.2,22 Z"/>' +
-        '<path d="M14,6.5 C13.5,4.5 12,4.5 11,5.5 C11,7 12.5,7.5 14,6.5 Z"/>' +
-        '<path d="M26,26 C27,20 26,14 22.5,9" fill="none" stroke="' + strokeColor + '" stroke-width="1.2" stroke-linecap="round"/>' +
-        '<path d="M23,9 C25,7 27,8 27.5,9.5 C26.8,11 25,10.5 23,9 Z"/>' +
-        '<path d="M25,13 C27,12 28.5,13.2 28.5,14.8 C27.5,15.8 25.5,15 25,13 Z"/>' +
-        '<path d="M26.2,17.5 C28.2,17 29.2,18.5 29.2,20 C28.2,21 26.2,20 26.2,17.5 Z"/>' +
-        '<path d="M25.8,22 C27.5,22 28,23.5 27.5,25 C26.5,25.5 25,24 25.8,22 Z"/>' +
-        '<path d="M22,6.5 C22.5,4.5 24,4.5 25,5.5 C25,7 23.5,7.5 22,6.5 Z"/>' +
-      '</g>' +
-      '<circle cx="18" cy="18" r="8.5" fill="url(#' + gradId + ')" stroke="' + strokeColor + '" stroke-width="0.8"/>' +
-      '<text x="18" y="21.5" font-family="\'Switzer\', -apple-system, sans-serif" font-size="11" font-weight="900" text-anchor="middle" fill="' + textColor + '">' + rank + '</text>' +
-    '</svg>';
+  function renderPodiumMedal(rank) {
+    var src = rank === 1 ? 'images/medaille_1_or.png' : (rank === 2 ? 'images/medaille_2_argent.png' : 'images/medaille_3_bronze.png');
+    var label = rank === 1 ? '1st' : (rank === 2 ? '2nd' : '3rd');
+    return '<img src="' + src + '" class="lp-podium-medal" alt="' + label + '" width="28" height="24">';
+  }
+
+  var ALL_AVATARS = [
+    'avatar_1.png', 'avatar_2.png', 'avatar_3.png', 'avatar_4.png', 'avatar_5.png',
+    'avatar_6.png', 'avatar_7.png', 'avatar_8.png', 'avatar_9.png', 'avatar_10.png',
+    'avatar_11.png', 'avatar_12.png', 'avatar_13.png', 'avatar_14.png', 'avatar_15.png'
+  ];
+
+  function getShuffledAvatars(seedKey) {
+    var arr = ALL_AVATARS.slice();
+    var hash = 0;
+    for (var i = 0; i < seedKey.length; i++) {
+      hash = (hash * 31 + seedKey.charCodeAt(i)) >>> 0;
+    }
+    for (var j = arr.length - 1; j > 0; j--) {
+      hash = (hash * 9301 + 49297) % 233280;
+      var rnd = Math.abs(hash) / 233280;
+      var k = Math.floor(rnd * (j + 1));
+      var tmp = arr[j];
+      arr[j] = arr[k];
+      arr[k] = tmp;
+    }
+    return arr;
   }
 
   var currentTab = 'matchday';
@@ -2086,9 +2063,15 @@
 
   function renderLeaderboard() {
     var data = currentTab === 'overall' ? OVERALL_DATA : bolaverseMatchday(currentRound);
+    var seedKey = currentTab === 'overall' ? 'overall' : ('matchday_' + currentRound);
+    var avatars = getShuffledAvatars(seedKey);
 
     if (lbUserRank) lbUserRank.textContent = data.userRank;
     if (lbUserPoints) lbUserPoints.textContent = data.userPoints;
+    var userAvatarEl = document.getElementById('lb-user-avatar');
+    if (userAvatarEl) {
+      userAvatarEl.innerHTML = '<img src="images/avatars/' + avatars[0] + '" class="lp-lb-avatar-img" alt="You">';
+    }
 
     if (lbRoundTitle) lbRoundTitle.textContent = 'Round ' + currentRound;
     if (lbRoundPrev) lbRoundPrev.disabled = currentRound <= 1;
@@ -2096,7 +2079,7 @@
 
     if (!lbRows) return;
     var html = '';
-    data.players.forEach(function (p) {
+    data.players.forEach(function (p, idx) {
       var rowClass = 'lp-lb-row';
       var ptsClass = 'lp-lb-points mono';
       var rankBadge = '';
@@ -2104,26 +2087,26 @@
       if (p.rank === 1) {
         rowClass += ' gold';
         ptsClass += ' gold';
-        rankBadge = renderLaurelMedal(1);
+        rankBadge = renderPodiumMedal(1);
       } else if (p.rank === 2) {
         rowClass += ' silver';
         ptsClass += ' silver';
-        rankBadge = renderLaurelMedal(2);
+        rankBadge = renderPodiumMedal(2);
       } else if (p.rank === 3) {
         rowClass += ' bronze';
         ptsClass += ' bronze';
-        rankBadge = renderLaurelMedal(3);
+        rankBadge = renderPodiumMedal(3);
       } else {
         rankBadge = '<span class="lp-lb-rank-num">' + p.rank + '</span>';
       }
 
+      var playerAvatar = avatars[(idx + 1) % avatars.length];
+
       html += '<div class="' + rowClass + '">' +
         '<div class="lp-lb-rank">' + rankBadge + '</div>' +
         '<div class="lp-lb-player">' +
-          '<div class="lp-lb-avatar" data-color="' + p.color + '">' +
-            '<svg viewBox="0 0 24 24" fill="currentColor">' +
-              '<path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>' +
-            '</svg>' +
+          '<div class="lp-lb-avatar">' +
+            '<img src="images/avatars/' + playerAvatar + '" class="lp-lb-avatar-img" alt="">' +
           '</div>' +
           '<span class="lp-lb-player-name">' + p.name + '</span>' +
           '<span class="lp-flag id" title="Indonesia"></span>' +
@@ -2209,6 +2192,190 @@
       });
     });
   }
+
+  /* ==================== SMART "GET THE APP" REDIRECT ==================== */
+  function detectStore() {
+    var ua = (navigator.userAgent || navigator.vendor || '').toLowerCase();
+    var platform = (navigator.platform || '').toLowerCase();
+    var isIOS = /iphone|ipad|ipod/.test(ua) || (platform === 'macintel' && navigator.maxTouchPoints > 1);
+    var isAndroid = /android/.test(ua);
+    if (isIOS) return 'ios';
+    if (isAndroid) return 'android';
+    if (/mac/.test(platform) || /macintosh/.test(ua)) return 'ios';
+    if (/win/.test(platform) || /windows/.test(ua)) return 'android';
+    return 'unknown';
+  }
+
+  function goToStore() {
+    var store = detectStore();
+    if (store === 'ios') {
+      window.location.href = 'itms-apps://apps.apple.com/app/bolaverse/id6793082058';
+    } else if (store === 'android') {
+      var isInstalled = false;
+      try { isInstalled = localStorage.getItem('bv_android_installed') === 'true'; } catch(e) {}
+      if (isInstalled) {
+        window.location.href = 'intent://open#Intent;scheme=bolaverse;package=com.bolaverse.app;S.browser_fallback_url=https%3A%2F%2Fplay.google.com%2Fstore%2Fapps%2Fdetails%3Fid%3Dcom.bolaverse.app;end';
+      } else {
+        window.location.href = 'market://details?id=com.bolaverse.app';
+      }
+    } else {
+      var dl = document.getElementById('download');
+      if (dl) {
+        dl.scrollIntoView({ behavior: 'smooth' });
+      } else {
+        window.location.href = '#download';
+      }
+    }
+  }
+
+  document.querySelectorAll('.js-get-app').forEach(function (btn) {
+    btn.addEventListener('click', function (e) {
+      e.preventDefault();
+      goToStore();
+    });
+  });
+
+  /* Direct app store deep link handler to prevent intermediate browser confirmation page */
+  document.querySelectorAll('.js-appstore-link').forEach(function (link) {
+    link.addEventListener('click', function (e) {
+      var ua = (navigator.userAgent || '').toLowerCase();
+      var isIOS = /iphone|ipad|ipod/.test(ua) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+      if (isIOS) {
+        e.preventDefault();
+        window.location.href = 'itms-apps://apps.apple.com/app/bolaverse/id6793082058';
+      }
+    });
+  });
+
+  document.querySelectorAll('.js-playstore-link').forEach(function (link) {
+    link.addEventListener('click', function (e) {
+      var ua = (navigator.userAgent || '').toLowerCase();
+      var isAndroid = /android/.test(ua);
+      if (isAndroid) {
+        e.preventDefault();
+        window.location.href = 'market://details?id=com.bolaverse.app';
+      }
+    });
+  });
+
+  /* ==================== ANDROID SMART APP BANNER ==================== */
+  (function initAndroidSmartBanner() {
+    var banner = document.getElementById('appInstallBanner');
+    var bannerClose = document.getElementById('appBannerClose');
+    var bannerBtn = document.getElementById('appBannerBtn');
+    var bannerSub = document.getElementById('appBannerSub');
+    if (!banner || !bannerBtn) return;
+
+    var ua = (navigator.userAgent || navigator.vendor || '').toLowerCase();
+    var platform = (navigator.platform || '').toLowerCase();
+    var isIOS = /iphone|ipad|ipod/.test(ua) || (platform === 'macintel' && navigator.maxTouchPoints > 1);
+    var isAndroid = /android/.test(ua);
+
+    // On iOS Safari, the native Apple Smart App Banner handles this automatically.
+    // Suppress custom banner on iOS to prevent duplicate banners.
+    if (isIOS) return;
+
+    // Check if dismissed in this session
+    try {
+      if (sessionStorage.getItem('bv_banner_dismissed') === '1') return;
+    } catch (e) {}
+
+    // Allow previewing with ?banner=android
+    var isTest = window.location.search.indexOf('banner=android') !== -1;
+    if (!isAndroid && !isTest) return;
+
+    var PKG = 'com.bolaverse.app';
+    var PLAY_STORE_URL = 'https://play.google.com/store/apps/details?id=' + PKG;
+    var MARKET_URL = 'market://details?id=' + PKG;
+    var INTENT_URL = 'intent://open#Intent;scheme=bolaverse;package=' + PKG + ';S.browser_fallback_url=' + encodeURIComponent(PLAY_STORE_URL) + ';end';
+
+    var appIsInstalled = false;
+
+    function renderBannerState(installed) {
+      appIsInstalled = !!installed;
+      if (appIsInstalled) {
+        bannerBtn.textContent = 'OPEN';
+        bannerBtn.setAttribute('data-state', 'open');
+        if (bannerSub) bannerSub.textContent = 'Free on Google Play';
+      } else {
+        bannerBtn.textContent = 'INSTALL';
+        bannerBtn.setAttribute('data-state', 'install');
+        if (bannerSub) bannerSub.textContent = 'Free on Google Play';
+      }
+    }
+
+    // 1. Initial cached state check
+    try {
+      if (localStorage.getItem('bv_android_installed') === 'true') {
+        renderBannerState(true);
+      } else {
+        renderBannerState(false);
+      }
+    } catch (e) {
+      renderBannerState(false);
+    }
+
+    // Display banner at the top of the page
+    banner.style.display = 'flex';
+
+    // 2. Query OS package manager via Web getInstalledRelatedApps API
+    if ('getInstalledRelatedApps' in navigator) {
+      navigator.getInstalledRelatedApps().then(function (relatedApps) {
+        if (Array.isArray(relatedApps)) {
+          var found = relatedApps.some(function (app) {
+            return app.id === PKG || app.platform === 'play';
+          });
+          if (found) {
+            try { localStorage.setItem('bv_android_installed', 'true'); } catch (e) {}
+            renderBannerState(true);
+          } else if (relatedApps.length === 0) {
+            try { localStorage.removeItem('bv_android_installed'); } catch (e) {}
+            renderBannerState(false);
+          }
+        }
+      }).catch(function () {});
+    }
+
+    // 3. Banner action button click handler
+    bannerBtn.addEventListener('click', function (e) {
+      e.preventDefault();
+      if (appIsInstalled) {
+        // App is installed: open app directly
+        window.location.href = INTENT_URL;
+      } else {
+        // App is not installed: direct to Google Play
+        try { localStorage.setItem('bv_android_installed', 'true'); } catch (e) {}
+        renderBannerState(true);
+        window.location.href = MARKET_URL;
+        setTimeout(function () {
+          window.location.href = PLAY_STORE_URL;
+        }, 800);
+      }
+    });
+
+    // 4. Banner close button
+    if (bannerClose) {
+      bannerClose.addEventListener('click', function () {
+        banner.style.display = 'none';
+        try { sessionStorage.setItem('bv_banner_dismissed', '1'); } catch (e) {}
+      });
+    }
+
+    // 5. Visibility change re-verification
+    document.addEventListener('visibilitychange', function () {
+      if (!document.hidden && 'getInstalledRelatedApps' in navigator) {
+        navigator.getInstalledRelatedApps().then(function (relatedApps) {
+          if (Array.isArray(relatedApps)) {
+            var found = relatedApps.some(function (app) {
+              return app.id === PKG || app.platform === 'play';
+            });
+            renderBannerState(found);
+          }
+        }).catch(function () {});
+      }
+    });
+  })();
+
 </script>
 
 </body>
