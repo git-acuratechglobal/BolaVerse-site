@@ -535,11 +535,11 @@
   .lp-pia {
     background: var(--bg-soft);
     border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);
-    padding: 64px 0;
+    padding: 60px 24px;
   }
   .lp-pia-grid {
     display: grid; grid-template-columns: 1.05fr 0.95fr; gap: 48px; align-items: center;
-    max-width: 1120px; margin: 0 auto; padding: 0 24px;
+    width: 100%; margin: 0; padding: 0;
   }
   .lp-pia-copy p.lp-section-sub { margin-bottom: 26px; }
   .lp-pia-list { list-style: none; margin: 0 0 30px; padding: 0; display: flex; flex-direction: column; gap: 14px; }
@@ -553,13 +553,13 @@
     max-width: 480px; width: 100%; margin: 0 auto;
   }
   @media (max-width: 600px) {
-    .lp-pia-demo { max-width: 358px; }
+    .lp-pia-demo { max-width: 100%; }
   }
   .lp-pia-demo-head { display: flex; align-items: center; justify-content: space-between; margin-bottom: 14px; }
   .lp-pia-demo-title { font-size: 11.5px; font-weight: 700; letter-spacing: 0.8px; text-transform: uppercase; color: var(--text-dimmer); }
   .lp-pia-demo-badge {
-    font-family: 'JetBrains Mono', monospace; font-size: 11px; font-weight: 700; color: var(--blue);
-    border: 1px solid rgba(15,111,232,0.4); background: rgba(15,111,232,0.1);
+    font-family: 'JetBrains Mono', monospace; font-size: 11px; font-weight: 700; color: #ef4444;
+    border: 1px solid rgba(239, 68, 68, 0.4); background: rgba(239, 68, 68, 0.1);
     padding: 3px 9px; border-radius: 999px;
   }
 
@@ -568,10 +568,10 @@
     display: flex; gap: 10px; margin-bottom: 12px;
   }
   .lp-comp-tab {
-    flex: 1; display: flex; align-items: center; justify-content: flex-start; gap: 9px;
+    flex: 1; display: flex; align-items: center; justify-content: flex-start; gap: 8px;
     background: #061411; border: 1.5px solid rgba(255,255,255,0.08); border-radius: 14px;
-    padding: 13px 18px; min-height: 50px; font-size: 13.5px; font-weight: 700; color: var(--text-dim);
-    cursor: pointer; transition: all .15s ease;
+    padding: 13px 12px; min-height: 50px; font-size: 13.5px; font-weight: 700; color: var(--text-dim);
+    cursor: pointer; transition: all .15s ease; white-space: nowrap;
   }
   .lp-comp-tab:hover {
     background: rgba(255,255,255,0.05); color: #ffffff;
@@ -598,7 +598,7 @@
     background: #0d1512;
     border: 1px solid rgba(255, 255, 255, 0.12);
     border-radius: 14px;
-    padding: 10px 14px 12px;
+    padding: 10px 10px 12px;
     box-shadow: 0 10px 28px rgba(0, 0, 0, 0.5);
     width: 100%; box-sizing: border-box;
   }
@@ -608,25 +608,25 @@
     font-family: 'JetBrains Mono', monospace; text-transform: uppercase;
   }
   .lp-match-card-main {
-    display: flex; align-items: center; justify-content: space-between; gap: 6px; margin-bottom: 10px;
+    display: flex; align-items: center; justify-content: space-between; gap: 4px; margin-bottom: 10px;
   }
   .lp-match-team {
-    display: flex; align-items: center; gap: 7px; flex: 1; min-width: 0;
+    display: flex; align-items: center; gap: 6px; flex: 1; min-width: 0;
   }
   .lp-match-team-home { justify-content: flex-start; text-align: left; }
   .lp-match-team-away { justify-content: flex-end; text-align: right; }
   .lp-match-jersey {
-    width: 26px; height: 30px; object-fit: contain; flex-shrink: 0; display: block;
+    width: 28px; height: 32px; object-fit: contain; flex-shrink: 0; display: block;
   }
   .lp-match-team-name {
-    font-size: 12.5px; font-weight: 700; color: #ffffff; line-height: 1.25;
+    font-size: 12.5px; font-weight: 700; color: #ffffff; line-height: 1.2;
     word-break: normal; overflow-wrap: break-word;
   }
   .lp-match-score-inputs {
     display: flex; align-items: center; justify-content: center; gap: 0; flex-shrink: 0;
   }
   .lp-score-box {
-    width: 42px; height: 44px; border-radius: 9px;
+    width: 38px; height: 40px; border-radius: 9px;
     background: rgba(255, 255, 255, 0.04); border: 1px solid rgba(255, 255, 255, 0.14);
     display: flex; align-items: center; justify-content: center;
     font-family: 'JetBrains Mono', monospace; font-size: 20px; font-weight: 700; color: #7E8584;
@@ -640,7 +640,7 @@
   }
   .lp-score-box:active { transform: scale(0.92); }
   .lp-match-vs {
-    width: 26px; text-align: center; font-size: 11.5px; font-weight: 600; color: #7E8584; text-transform: lowercase;
+    width: 20px; text-align: center; font-size: 11.5px; font-weight: 600; color: #7E8584; text-transform: lowercase;
   }
 
   /* Three odds pills */
@@ -731,11 +731,11 @@
   }
   .lp-leaderboard-sec .lp-section-head {
     max-width: 640px;
-    margin: 0 auto 32px;
+    margin: 0 0 32px;
     text-align: left;
   }
   .lp-lb-container {
-    margin: 0 auto;
+    margin: 0;
     max-width: 640px;
   }
   .lp-lb-inner-box {
@@ -1243,8 +1243,9 @@
   @media (max-width: 600px) {
     section, .lp-leaderboard-sec { padding: 48px 16px; }
     .wrap { padding-left: 0; padding-right: 0; }
+    .lp-lb-container { margin: 0 auto; max-width: 100%; }
     .lp-lb-inner-box { padding: 20px 14px; border-radius: 18px; }
-    .lp-comp-tab { justify-content: flex-start; padding: 12px 14px; min-height: 48px; font-size: 13px; }
+    .lp-comp-tab { justify-content: flex-start; padding: 12px 10px; min-height: 48px; font-size: 13.5px; gap: 8px; white-space: nowrap; }
     .lp-tab-dots { margin-bottom: 20px; }
     .lp-league-card { padding: 18px 12px; border-radius: 16px; }
     .lp-pub-card { padding: 12px 12px 14px; }
@@ -1468,11 +1469,11 @@
 
         <!-- Competition Tabs -->
         <div class="lp-comp-tabs">
-          <button class="lp-comp-tab" id="tabEPL" type="button">
+          <button class="lp-comp-tab is-active" id="tabEPL" type="button">
             <img src="images/primier.png" alt="" width="18" height="14">
             <span>Premier League</span>
           </button>
-          <button class="lp-comp-tab is-active" id="tabLiga1" type="button">
+          <button class="lp-comp-tab" id="tabLiga1" type="button">
             <img src="images/indonesia.png" alt="" width="18" height="14">
             <span>Liga 1</span>
           </button>
@@ -1480,17 +1481,17 @@
 
         <!-- Tab indicator dots -->
         <div class="lp-tab-dots">
-          <div class="lp-tab-dot" id="dotEPL"></div>
-          <div class="lp-tab-dot is-active" id="dotLiga1"></div>
+          <div class="lp-tab-dot is-active" id="dotEPL"></div>
+          <div class="lp-tab-dot" id="dotLiga1"></div>
         </div>
 
         <!-- Match Card -->
         <div class="lp-match-card">
-          <div class="lp-match-card-date" id="matchDate">SUN, 21 MAR · 8:00PM</div>
+          <div class="lp-match-card-date" id="matchDate">SAT, 20 MAR · 7:30PM</div>
           <div class="lp-match-card-main">
             <div class="lp-match-team lp-match-team-home">
-              <img id="crestA" src="images/jersey_persija.png" alt="" class="lp-match-jersey">
-              <span class="lp-match-team-name" id="teamAName">Persija<br>Jakarta</span>
+              <img id="crestA" src="images/jersey_manutd.png" alt="" class="lp-match-jersey">
+              <span class="lp-match-team-name" id="teamAName">Man. United</span>
             </div>
             <div class="lp-match-score-inputs">
               <div class="lp-score-box" id="boxA" role="button" tabindex="0" aria-label="Change home score">-</div>
@@ -1498,14 +1499,14 @@
               <div class="lp-score-box" id="boxB" role="button" tabindex="0" aria-label="Change away score">-</div>
             </div>
             <div class="lp-match-team lp-match-team-away">
-              <span class="lp-match-team-name" id="teamBName">Persib<br>Bandung</span>
-              <img id="crestB" src="images/jersey_persib.png" alt="" class="lp-match-jersey">
+              <span class="lp-match-team-name" id="teamBName">Liverpool</span>
+              <img id="crestB" src="images/jersey_liverpool.png" alt="" class="lp-match-jersey">
             </div>
           </div>
           <div class="lp-match-chips">
-            <div class="lp-match-chip" id="chipHome"><span id="ptsHome">38</span> PTS</div>
-            <div class="lp-match-chip" id="chipDraw"><span id="ptsDraw">36</span> PTS</div>
-            <div class="lp-match-chip" id="chipAway"><span id="ptsAway">26</span> PTS</div>
+            <div class="lp-match-chip" id="chipHome"><span id="ptsHome">28</span> PTS</div>
+            <div class="lp-match-chip" id="chipDraw"><span id="ptsDraw">39</span> PTS</div>
+            <div class="lp-match-chip" id="chipAway"><span id="ptsAway">33</span> PTS</div>
           </div>
         </div>
 
@@ -1670,10 +1671,8 @@
         <div class="lp-lb-pos-body">
           <div class="lp-lb-pos-left">
             <span class="lp-lb-pos-rank" id="lb-user-rank">69</span>
-            <div class="lp-lb-avatar" data-color="blue" id="lb-user-avatar">
-              <svg viewBox="0 0 24 24" fill="currentColor">
-                <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
-              </svg>
+            <div class="lp-lb-avatar" id="lb-user-avatar">
+              <img src="images/avatar_user.png" class="lp-lb-avatar-img" alt="You">
             </div>
             <span class="lp-lb-player-name">You</span>
             <span class="lp-flag id" title="Indonesia"></span>
@@ -1813,7 +1812,7 @@
     }
   };
 
-  var currentMatchKey = 'liga1';
+  var currentMatchKey = 'epl';
 
   var boxA = document.getElementById('boxA');
   var boxB = document.getElementById('boxB');
@@ -1924,7 +1923,7 @@
     });
   }
 
-  loadMatch('liga1');
+  loadMatch('epl');
 
   // Featured league "Ends In" if element present
   var endsInEl = document.getElementById('featuredEndsIn');
@@ -2078,7 +2077,7 @@
     if (lbUserPoints) lbUserPoints.textContent = data.userPoints;
     var userAvatarEl = document.getElementById('lb-user-avatar');
     if (userAvatarEl) {
-      userAvatarEl.innerHTML = '<img src="images/avatars/' + avatars[0] + '" class="lp-lb-avatar-img" alt="You">';
+      userAvatarEl.innerHTML = '<img src="images/avatar_user.png" class="lp-lb-avatar-img" alt="You">';
     }
 
     if (lbRoundTitle) lbRoundTitle.textContent = 'Round ' + currentRound;
@@ -2108,13 +2107,14 @@
         rankBadge = '<span class="lp-lb-rank-num">' + p.rank + '</span>';
       }
 
-      var playerAvatar = avatars[(idx + 1) % avatars.length];
+      var playerAvatar = avatars[idx % avatars.length];
+      var avatarSrc = (p.name === 'You' || p.isUser) ? 'images/avatar_user.png' : ('images/avatars/' + playerAvatar);
 
       html += '<div class="' + rowClass + '">' +
         '<div class="lp-lb-rank">' + rankBadge + '</div>' +
         '<div class="lp-lb-player">' +
           '<div class="lp-lb-avatar">' +
-            '<img src="images/avatars/' + playerAvatar + '" class="lp-lb-avatar-img" alt="">' +
+            '<img src="' + avatarSrc + '" class="lp-lb-avatar-img" alt="">' +
           '</div>' +
           '<span class="lp-lb-player-name">' + p.name + '</span>' +
           '<span class="lp-flag id" title="Indonesia"></span>' +
@@ -2202,37 +2202,34 @@
   }
 
   /* ==================== SMART "GET THE APP" REDIRECT ==================== */
-  function detectStore() {
+  function detectStoreTarget() {
     var ua = (navigator.userAgent || navigator.vendor || '').toLowerCase();
     var platform = (navigator.platform || '').toLowerCase();
+
+    // 1. iOS (iPhone, iPad, iPod, or iPadOS on MacIntel with touch)
     var isIOS = /iphone|ipad|ipod/.test(ua) || (platform === 'macintel' && navigator.maxTouchPoints > 1);
+    if (isIOS) return 'apple';
+
+    // 2. Android mobile
     var isAndroid = /android/.test(ua);
-    if (isIOS) return 'ios';
     if (isAndroid) return 'android';
-    if (/mac/.test(platform) || /macintosh/.test(ua)) return 'ios';
-    if (/win/.test(platform) || /windows/.test(ua)) return 'android';
-    return 'unknown';
+
+    // 3. Mac desktop (macOS) -> redirect directly to Apple App Store
+    var isMac = /macintosh|macintel|macppc|mac68k|darwin/.test(platform) || /mac os x/.test(ua);
+    if (isMac) return 'apple';
+
+    // 4. Windows desktop / PC / other -> redirect directly to Google Play Store
+    return 'google';
   }
 
   function goToStore() {
-    var store = detectStore();
-    if (store === 'ios') {
-      window.location.href = 'itms-apps://apps.apple.com/app/bolaverse/id6793082058';
-    } else if (store === 'android') {
-      var isInstalled = false;
-      try { isInstalled = localStorage.getItem('bv_android_installed') === 'true'; } catch(e) {}
-      if (isInstalled) {
-        window.location.href = 'market://details?id=com.bolaverse.app';
-      } else {
-        window.location.href = 'market://details?id=com.bolaverse.app';
-      }
+    var target = detectStoreTarget();
+    if (target === 'apple') {
+      window.location.href = 'https://apps.apple.com/app/bolaverse/id6793082058';
+    } else if (target === 'android') {
+      window.location.href = 'intent://details?id=com.bolaverse.app#Intent;scheme=market;package=com.android.vending;S.browser_fallback_url=' + encodeURIComponent('https://play.google.com/store/apps/details?id=com.bolaverse.app') + ';end';
     } else {
-      var dl = document.getElementById('download');
-      if (dl) {
-        dl.scrollIntoView({ behavior: 'smooth' });
-      } else {
-        window.location.href = '#download';
-      }
+      window.location.href = 'https://play.google.com/store/apps/details?id=com.bolaverse.app';
     }
   }
 
@@ -2261,7 +2258,7 @@
       var isAndroid = /android/.test(ua);
       if (isAndroid) {
         e.preventDefault();
-        window.location.href = 'market://details?id=com.bolaverse.app';
+        window.location.href = 'intent://details?id=com.bolaverse.app#Intent;scheme=market;package=com.android.vending;S.browser_fallback_url=' + encodeURIComponent('https://play.google.com/store/apps/details?id=com.bolaverse.app') + ';end';
       }
     });
   });
@@ -2294,7 +2291,7 @@
 
     var PKG = 'com.bolaverse.app';
     var PLAY_STORE_URL = 'https://play.google.com/store/apps/details?id=' + PKG;
-    var MARKET_URL = 'market://details?id=' + PKG;
+    var MARKET_URL = 'intent://details?id=' + PKG + '#Intent;scheme=market;package=com.android.vending;S.browser_fallback_url=' + encodeURIComponent(PLAY_STORE_URL) + ';end';
     // Intent: tries to OPEN the installed app by package name.
     // Android OS automatically falls back to Play Store if app is not installed.
     var INTENT_URL = 'intent://#Intent;action=android.intent.action.MAIN;category=android.intent.category.LAUNCHER;package=' + PKG + ';S.browser_fallback_url=' + encodeURIComponent(PLAY_STORE_URL) + ';end';
