@@ -4,6 +4,10 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Join a league on BolaVerse</title>
+  <link rel="preload" href="fonts/switzer-400.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="fonts/switzer-600.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="fonts/switzer-700.woff2" as="font" type="font/woff2" crossorigin />
+
 <meta name="description" content="You've been invited to a BolaVerse prediction league. Get the app and enter your invite code to join." />
 <meta name="apple-itunes-app" content="app-id=6793082058" />
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png" />
@@ -16,8 +20,62 @@
 <!-- Only reached when the app is NOT installed: an installed app takes the
      link before the browser ever loads this page. -->
 <style>
-  @import url('https://api.fontshare.com/v2/css?f[]=switzer@400,500,600,700,800,900&display=swap');
-  @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;700&display=swap');
+    @font-face {
+      font-family: 'Switzer';
+      src: url('fonts/switzer-400.woff2') format('woff2');
+      font-weight: 400;
+      font-style: normal;
+      font-display: block;
+    }
+    @font-face {
+      font-family: 'Switzer';
+      src: url('fonts/switzer-500.woff2') format('woff2');
+      font-weight: 500;
+      font-style: normal;
+      font-display: block;
+    }
+    @font-face {
+      font-family: 'Switzer';
+      src: url('fonts/switzer-600.woff2') format('woff2');
+      font-weight: 600;
+      font-style: normal;
+      font-display: block;
+    }
+    @font-face {
+      font-family: 'Switzer';
+      src: url('fonts/switzer-700.woff2') format('woff2');
+      font-weight: 700;
+      font-style: normal;
+      font-display: block;
+    }
+    @font-face {
+      font-family: 'Switzer';
+      src: url('fonts/switzer-800.woff2') format('woff2');
+      font-weight: 800;
+      font-style: normal;
+      font-display: block;
+    }
+    @font-face {
+      font-family: 'Switzer';
+      src: url('fonts/switzer-900.woff2') format('woff2');
+      font-weight: 900;
+      font-style: normal;
+      font-display: block;
+    }
+    @font-face {
+      font-family: 'JetBrains Mono';
+      src: url('fonts/jetbrains-500.woff2') format('woff2');
+      font-weight: 500;
+      font-style: normal;
+      font-display: block;
+    }
+    @font-face {
+      font-family: 'JetBrains Mono';
+      src: url('fonts/jetbrains-700.woff2') format('woff2');
+      font-weight: 700;
+      font-style: normal;
+      font-display: block;
+    }
 
   :root {
     --bg: #010a09;

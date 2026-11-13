@@ -18,11 +18,69 @@
   <link rel="preload" as="image" href="hero_phone_leaderboard.webp" type="image/webp" fetchpriority="high" />
   <link rel="preload" as="image" href="badge_appstore.webp" type="image/webp" fetchpriority="high" />
   <link rel="preload" as="image" href="badge_googleplay.webp" type="image/webp" fetchpriority="high" />
-  <meta name="description"
+    <link rel="preload" href="fonts/switzer-400.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="fonts/switzer-600.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="fonts/switzer-700.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="fonts/switzer-800.woff2" as="font" type="font/woff2" crossorigin />
+<meta name="description"
     content="Create private leagues, challenge your friends and make your picks across Southeast Asia's biggest football competitions and the Premier League. 100% free to play." />
   <style>
-    @import url('https://api.fontshare.com/v2/css?f[]=switzer@400,500,600,700,800,900&display=swap');
-    @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;700&display=swap');
+    @font-face {
+      font-family: 'Switzer';
+      src: url('fonts/switzer-400.woff2') format('woff2');
+      font-weight: 400;
+      font-style: normal;
+      font-display: block;
+    }
+    @font-face {
+      font-family: 'Switzer';
+      src: url('fonts/switzer-500.woff2') format('woff2');
+      font-weight: 500;
+      font-style: normal;
+      font-display: block;
+    }
+    @font-face {
+      font-family: 'Switzer';
+      src: url('fonts/switzer-600.woff2') format('woff2');
+      font-weight: 600;
+      font-style: normal;
+      font-display: block;
+    }
+    @font-face {
+      font-family: 'Switzer';
+      src: url('fonts/switzer-700.woff2') format('woff2');
+      font-weight: 700;
+      font-style: normal;
+      font-display: block;
+    }
+    @font-face {
+      font-family: 'Switzer';
+      src: url('fonts/switzer-800.woff2') format('woff2');
+      font-weight: 800;
+      font-style: normal;
+      font-display: block;
+    }
+    @font-face {
+      font-family: 'Switzer';
+      src: url('fonts/switzer-900.woff2') format('woff2');
+      font-weight: 900;
+      font-style: normal;
+      font-display: block;
+    }
+    @font-face {
+      font-family: 'JetBrains Mono';
+      src: url('fonts/jetbrains-500.woff2') format('woff2');
+      font-weight: 500;
+      font-style: normal;
+      font-display: block;
+    }
+    @font-face {
+      font-family: 'JetBrains Mono';
+      src: url('fonts/jetbrains-700.woff2') format('woff2');
+      font-weight: 700;
+      font-style: normal;
+      font-display: block;
+    }
 
     :root {
       --bg: #010a09;
@@ -47,6 +105,16 @@
 
     html {
       scroll-behavior: smooth;
+    }
+
+    section[id] {
+      scroll-margin-top: 56px;
+    }
+
+    @media (max-width: 900px) {
+      section[id] {
+        scroll-margin-top: 48px;
+      }
     }
 
     html,
@@ -1126,7 +1194,7 @@
       padding: 0;
       max-width: 480px;
       width: 100%;
-      margin: 0 auto;
+      margin: 0;
     }
 
     @media (max-width: 600px) {
@@ -1467,14 +1535,15 @@
       .lp-pia-grid {
         grid-template-columns: 1fr;
         gap: 36px;
-        padding: 0 16px;
-        margin: 0 auto;
+        padding: 0;
+        margin: 0;
+        width: 100%;
       }
 
       .lp-pia-demo {
-        max-width: 358px;
+        max-width: 100%;
         width: 100%;
-        margin: 0 auto;
+        margin: 0;
       }
     }
 
@@ -1571,14 +1640,15 @@
 
     /* ---------- Leaderboard Section (New) ---------- */
     .lp-leaderboard-sec {
-      padding: 80px 24px 60px;
+      padding: 60px 24px;
       position: relative;
       border-top: 1px solid var(--border);
+      min-height: calc(100vh - 100px);
     }
 
     .lp-leaderboard-sec .lp-section-head {
       max-width: 640px;
-      margin: 0 0 32px;
+      margin: 0 0 40px;
       text-align: left;
     }
 
@@ -2370,9 +2440,13 @@
 
     @media (max-width: 600px) {
 
-      section,
+      section {
+        padding: 48px 16px;
+      }
+
       .lp-leaderboard-sec {
         padding: 48px 16px;
+        min-height: calc(100vh - 86px);
       }
 
       .wrap {
@@ -2380,8 +2454,12 @@
         padding-right: 0;
       }
 
+      .lp-leaderboard-sec .lp-section-head {
+        margin: 0 0 32px;
+      }
+
       .lp-lb-container {
-        margin: 0 auto;
+        margin: 0;
         max-width: 100%;
       }
 
@@ -2720,7 +2798,7 @@
     <div class="wrap">
       <div class="lp-pia-grid">
         <div class="lp-pia-copy">
-          <p class="lp-eyebrow-plain">The scoring system</p>
+          <p class="lp-eyebrow-plain">Scoring</p>
           <h2 class="lp-h2">Every pick has a value.</h2>
           <p class="lp-section-sub">Every match is worth 100 points. The harder a pick is to get right, the more points
             you can earn.</p>
@@ -3533,13 +3611,15 @@
     var menuToggle = document.getElementById('menuToggle');
     var mobileMenu = document.getElementById('mobileMenu');
 
-    if (menuToggle && mobileMenu) {
-      function closeMobileMenu() {
+    function closeMobileMenu() {
+      if (mobileMenu && menuToggle) {
         mobileMenu.classList.remove('is-open');
         menuToggle.classList.remove('is-active');
         menuToggle.setAttribute('aria-expanded', 'false');
       }
+    }
 
+    if (menuToggle && mobileMenu) {
       menuToggle.addEventListener('click', function (e) {
         e.stopPropagation();
         var isOpen = mobileMenu.classList.toggle('is-open');
@@ -3555,12 +3635,50 @@
 
       document.addEventListener('click', handleOutsideTap);
       document.addEventListener('touchend', handleOutsideTap, { passive: true });
+    }
 
-      mobileMenu.querySelectorAll('.lp-mobile-link').forEach(function (link) {
-        link.addEventListener('click', function () {
-          closeMobileMenu();
-        });
+    function scrollToSection(targetId) {
+      var targetEl = document.querySelector(targetId);
+      if (!targetEl) return;
+      var header = document.querySelector('.lp-header');
+      var headerHeight = header ? header.offsetHeight : 0;
+      // Target the blue section title (.lp-eyebrow-plain) so each section opens cleanly at the top without showing previous section cards
+      var titleEl = targetEl.querySelector('.lp-eyebrow-plain') || targetEl;
+      var extraGap = 18;
+      var titlePosition = titleEl.getBoundingClientRect().top;
+      var offsetPosition = titlePosition + window.pageYOffset - headerHeight - extraGap;
+      window.scrollTo({
+        top: Math.max(0, offsetPosition),
+        behavior: 'smooth'
       });
+    }
+
+    // In-page navigation without adding history entries (Back button exits site directly)
+    document.querySelectorAll('a[href^="#"]').forEach(function (link) {
+      link.addEventListener('click', function (e) {
+        var targetId = this.getAttribute('href');
+        if (targetId && targetId !== '#') {
+          var targetEl = document.querySelector(targetId);
+          if (targetEl) {
+            e.preventDefault();
+            closeMobileMenu();
+            scrollToSection(targetId);
+            if (window.history && window.history.replaceState) {
+              history.replaceState(null, '', window.location.pathname + window.location.search);
+            }
+          }
+        }
+      });
+    });
+
+    if (window.location.hash) {
+      var initialHash = window.location.hash;
+      setTimeout(function () {
+        scrollToSection(initialHash);
+        if (window.history && window.history.replaceState) {
+          history.replaceState(null, '', window.location.pathname + window.location.search);
+        }
+      }, 100);
     }
 
     /* ==================== SMART "GET THE APP" REDIRECT ==================== */
