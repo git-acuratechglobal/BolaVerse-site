@@ -3658,7 +3658,7 @@
       var header = document.querySelector('.lp-header');
       var headerHeight = header ? header.offsetHeight : 0;
       // Target the blue section title (.lp-eyebrow-plain) so each section opens cleanly at the top without showing previous section cards
-      var titleEl = targetEl.querySelector('.lp-eyebrow-plain') || targetEl;
+      var titleEl = targetEl.querySelector('.lp-eyebrow-plain') || targetEl.querySelector('h2') || targetEl;
       var extraGap = 18;
       var titlePosition = titleEl.getBoundingClientRect().top;
       var offsetPosition = titlePosition + window.pageYOffset - headerHeight - extraGap;
@@ -3671,6 +3671,7 @@
     // In-page navigation without adding history entries (Back button exits site directly)
     document.querySelectorAll('a[href^="#"]').forEach(function (link) {
       link.addEventListener('click', function (e) {
+        if (this.classList.contains('js-get-app')) return;
         var targetId = this.getAttribute('href');
         if (targetId && targetId !== '#') {
           var targetEl = document.querySelector(targetId);
@@ -3701,19 +3702,12 @@
       var ua = (navigator.userAgent || navigator.vendor || '').toLowerCase();
       var platform = (navigator.platform || '').toLowerCase();
 
-      // 1. iOS (iPhone, iPad, iPod, or iPadOS on MacIntel with touch)
+      // 1. Apple devices: iOS (iPhone, iPad, iPod) or macOS (Mac desktop/laptop)
       var isIOS = /iphone|ipad|ipod/.test(ua) || (platform === 'macintel' && navigator.maxTouchPoints > 1);
-      if (isIOS) return 'apple';
-
-      // 2. Android mobile
-      var isAndroid = /android/.test(ua);
-      if (isAndroid) return 'android';
-
-      // 3. Mac desktop (macOS) -> redirect directly to Apple App Store
       var isMac = /macintosh|macintel|macppc|mac68k|darwin/.test(platform) || /mac os x/.test(ua);
-      if (isMac) return 'apple';
+      if (isIOS || isMac) return 'apple';
 
-      // 4. Windows desktop / PC / other -> redirect directly to Google Play Store
+      // 2. Windows PC, Android, or others -> Google Play Store
       return 'google';
     }
 
@@ -3721,8 +3715,6 @@
       var target = detectStoreTarget();
       if (target === 'apple') {
         window.location.href = 'https://apps.apple.com/app/bolaverse/id6793082058';
-      } else if (target === 'android') {
-        window.location.href = 'intent://details?id=com.bolaverse.app#Intent;scheme=market;package=com.android.vending;S.browser_fallback_url=' + encodeURIComponent('https://play.google.com/store/apps/details?id=com.bolaverse.app') + ';end';
       } else {
         window.location.href = 'https://play.google.com/store/apps/details?id=com.bolaverse.app';
       }

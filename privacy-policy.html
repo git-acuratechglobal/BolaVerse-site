@@ -752,24 +752,18 @@
   function detectStore() {
     var ua = (navigator.userAgent || navigator.vendor || '').toLowerCase();
     var platform = (navigator.platform || '').toLowerCase();
-    var isIOS = /iphone|ipad|ipod/.test(ua);
-    var isMac = /mac/.test(platform) || /macintosh/.test(ua);
-    var isWindows = /win/.test(platform) || /windows/.test(ua);
-    var isAndroid = /android/.test(ua);
-    if (isIOS || isMac) return 'ios';
-    if (isAndroid || isWindows) return 'android';
-    return 'unknown';
+    var isIOS = /iphone|ipad|ipod/.test(ua) || (platform === 'macintel' && navigator.maxTouchPoints > 1);
+    var isMac = /macintosh|macintel|macppc|mac68k|darwin/.test(platform) || /mac os x/.test(ua);
+    if (isIOS || isMac) return 'apple';
+    return 'google';
   }
 
   function goToStore() {
     var store = detectStore();
-    if (store === 'ios') {
+    if (store === 'apple') {
       window.location.href = 'https://apps.apple.com/app/bolaverse/id6793082058';
-    } else if (store === 'android') {
-      window.location.href = 'https://play.google.com/store/apps/details?id=com.bolaverse.app';
     } else {
-      window.location.href = (window.location.pathname.indexOf('index.html') === -1 && !window.location.pathname.endsWith('/'))
-        ? 'index.html#download' : '#download';
+      window.location.href = 'https://play.google.com/store/apps/details?id=com.bolaverse.app';
     }
   }
 
