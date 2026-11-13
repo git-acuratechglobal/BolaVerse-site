@@ -2083,6 +2083,7 @@
     .lp-pub-card-img {
       width: 100%;
       height: auto;
+      aspect-ratio: 1088 / 428;
       display: block;
       border-radius: 16px;
     }
@@ -3035,11 +3036,10 @@
             invite needed, just show up and pick.</p>
           <div class="lp-pub-list">
             <div class="lp-pub-card-wrap">
-              <img src="images/carte_premier_league.png" alt="Premier League Public League" class="lp-pub-card-img"
-                loading="lazy">
+              <img src="images/carte_premier_league.png" alt="Premier League Public League" class="lp-pub-card-img" width="1088" height="428" loading="eager" decoding="async">
             </div>
             <div class="lp-pub-card-wrap">
-              <img src="images/carte_liga_1.png" alt="Liga 1 Public League" class="lp-pub-card-img" loading="lazy">
+              <img src="images/carte_liga_1.png" alt="Liga 1 Public League" class="lp-pub-card-img" width="1088" height="428" loading="eager" decoding="async">
             </div>
           </div>
         </div>
@@ -3657,15 +3657,21 @@
       if (!targetEl) return;
       var header = document.querySelector('.lp-header');
       var headerHeight = header ? header.offsetHeight : 0;
-      // Target the blue section title (.lp-eyebrow-plain) so each section opens cleanly at the top without showing previous section cards
       var titleEl = targetEl.querySelector('.lp-eyebrow-plain') || targetEl.querySelector('h2') || targetEl;
       var extraGap = 18;
-      var titlePosition = titleEl.getBoundingClientRect().top;
-      var offsetPosition = titlePosition + window.pageYOffset - headerHeight - extraGap;
-      window.scrollTo({
-        top: Math.max(0, offsetPosition),
-        behavior: 'smooth'
-      });
+
+      function performScroll() {
+        var titlePosition = titleEl.getBoundingClientRect().top;
+        var offsetPosition = titlePosition + window.pageYOffset - headerHeight - extraGap;
+        window.scrollTo({
+          top: Math.max(0, offsetPosition),
+          behavior: 'smooth'
+        });
+      }
+
+      performScroll();
+      // Ensure exact accuracy if layout or images shift during initial navigation
+      setTimeout(performScroll, 120);
     }
 
     // In-page navigation without adding history entries (Back button exits site directly)
