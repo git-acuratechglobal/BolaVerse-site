@@ -1099,6 +1099,15 @@
         menuToggle.setAttribute('aria-expanded', 'false');
       }
     });
+
+    function closeMobileMenu() {
+      mobileMenu.classList.remove('is-open');
+      menuToggle.classList.remove('is-active');
+      menuToggle.setAttribute('aria-expanded', 'false');
+    }
+
+    window.addEventListener('pagehide', closeMobileMenu);
+    window.addEventListener('pageshow', closeMobileMenu);
   }
 </script>
 </body>
