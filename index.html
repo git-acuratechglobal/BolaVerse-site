@@ -6,13 +6,18 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>BolaVerse - One Game. One Passion. One Legend.</title>
   <meta name="apple-itunes-app" content="app-id=6793082058" />
-  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png" />
-  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png" />
-  <link rel="icon" href="favicon.ico" sizes="any" />
-  <link rel="icon" href="favicon.png" type="image/png" sizes="96x96" />
-  <link rel="icon" href="favicon-48x48.png" type="image/png" sizes="48x48" />
-  <link rel="apple-touch-icon" href="apple-touch-icon.png" sizes="180x180" />
-  <link rel="manifest" href="site.webmanifest" />
+  <link rel="icon" href="/favicon.ico" sizes="any" />
+  <link rel="icon" type="image/png" sizes="48x48" href="/favicon-48x48.png" />
+  <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png" />
+  <link rel="icon" type="image/png" sizes="144x144" href="/favicon-144x144.png" />
+  <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192x192.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" sizes="180x180" />
+  <link rel="manifest" href="/site.webmanifest" />
+  <meta property="og:image" content="https://bolaverse.com/favicon-512x512.png" />
+  <meta property="og:image:width" content="512" />
+  <meta property="og:image:height" content="512" />
   <link rel="preload" as="image" href="hero_phone_picks.webp" type="image/webp" fetchpriority="high" />
   <link rel="preload" as="image" href="hero_phone_leagues.webp" type="image/webp" fetchpriority="high" />
   <link rel="preload" as="image" href="hero_phone_leaderboard.webp" type="image/webp" fetchpriority="high" />
@@ -2600,7 +2605,7 @@
     <div class="lp-app-banner-left">
       <button class="lp-app-banner-close" id="appBannerClose" aria-label="Close app banner"
         type="button">&times;</button>
-      <img src="favicon-192x192.png" class="lp-app-banner-icon" alt="BolaVerse" width="38" height="38" />
+      <img src="/favicon-192x192.png" class="lp-app-banner-icon" alt="BolaVerse" width="38" height="38" />
       <div class="lp-app-banner-info">
         <strong class="lp-app-banner-title">BolaVerse</strong>
         <span class="lp-app-banner-sub" id="appBannerSub">Free on Google Play</span>
@@ -3756,147 +3761,96 @@
       });
     });
 
-    /* ==================== ANDROID SMART APP BANNER ==================== */
-    (function initAndroidSmartBanner() {
+    /* ==================== SMART APP DOWNLOAD BANNER (iOS & Android) ==================== */
+    (function initSmartAppBanner() {
       var banner = document.getElementById('appInstallBanner');
       var bannerClose = document.getElementById('appBannerClose');
       var bannerBtn = document.getElementById('appBannerBtn');
       var bannerSub = document.getElementById('appBannerSub');
       if (!banner || !bannerBtn) return;
 
+      // Clear any legacy permanent dismissal from localStorage
+      try { localStorage.removeItem('bv_banner_dismissed'); } catch (e) { }
+
+      // Check session dismissal
+      try {
+        if (sessionStorage.getItem('bv_banner_dismissed') === '1') return;
+      } catch (e) { }
+
       var ua = (navigator.userAgent || navigator.vendor || '').toLowerCase();
       var platform = (navigator.platform || '').toLowerCase();
       var isIOS = /iphone|ipad|ipod/.test(ua) || (platform === 'macintel' && navigator.maxTouchPoints > 1);
       var isAndroid = /android/.test(ua);
-
-      // On iOS Safari, the native Apple Smart App Banner handles this automatically.
-      // Suppress custom banner on iOS to prevent duplicate banners.
-      if (isIOS) return;
-
-      // Check if dismissed
-      try {
-        if (localStorage.getItem('bv_banner_dismissed') === '1' || sessionStorage.getItem('bv_banner_dismissed') === '1') return;
-      } catch (e) { }
-
-      // Allow previewing with ?banner=android
-      var isTest = window.location.search.indexOf('banner=android') !== -1;
-      if (!isAndroid && !isTest) return;
+      var isMac = !isIOS && (/macintosh|macintel|macppc|mac68k|darwin/.test(platform) || /mac os x/.test(ua));
 
       var PKG = 'com.bolaverse.app';
+      var APP_STORE_URL = 'https://apps.apple.com/app/bolaverse/id6793082058';
       var PLAY_STORE_URL = 'https://play.google.com/store/apps/details?id=' + PKG;
       var MARKET_URL = 'intent://details?id=' + PKG + '#Intent;scheme=market;package=com.android.vending;S.browser_fallback_url=' + encodeURIComponent(PLAY_STORE_URL) + ';end';
-      // Intent: tries to OPEN the installed app by package name.
-      // Android OS automatically falls back to Play Store if app is not installed.
       var INTENT_URL = 'intent://#Intent;action=android.intent.action.MAIN;category=android.intent.category.LAUNCHER;package=' + PKG + ';S.browser_fallback_url=' + encodeURIComponent(PLAY_STORE_URL) + ';end';
 
+      var isApple = isIOS || isMac;
       var appIsInstalled = false;
 
-      function renderBannerState(installed) {
-        appIsInstalled = !!installed;
-        if (appIsInstalled) {
-          bannerBtn.textContent = 'OPEN';
-          bannerBtn.setAttribute('data-state', 'open');
-          if (bannerSub) bannerSub.textContent = 'Free on Google Play';
-        } else {
-          bannerBtn.textContent = 'INSTALL';
-          bannerBtn.setAttribute('data-state', 'install');
-          if (bannerSub) bannerSub.textContent = 'Free on Google Play';
-        }
-      }
+      if (isApple) {
+        // Apple Theme (white bar with blue VIEW button matching Apple Smart App Banner)
+        banner.classList.add('theme-safari');
+        if (bannerSub) bannerSub.textContent = 'Free on the App Store';
+        bannerBtn.textContent = 'VIEW';
+        bannerBtn.setAttribute('href', APP_STORE_URL);
+      } else {
+        // Android & PC Theme (dark theme with lime INSTALL button)
+        banner.classList.remove('theme-safari');
+        if (bannerSub) bannerSub.textContent = 'Free on Google Play';
+        bannerBtn.textContent = 'INSTALL';
+        bannerBtn.setAttribute('href', PLAY_STORE_URL);
 
-      // 1. Determine initial state from localStorage.
-      //    'true'  = confirmed installed (from previous session) → show OPEN
-      //    'false' = confirmed not installed → show INSTALL
-      //    null    = unknown (first visit) → show INSTALL (safe default)
-      var stored = null;
-      try { stored = localStorage.getItem('bv_android_installed'); } catch (e) { }
-
-      // Allow forcing installed state via URL param (for testing)
-      var forceInstalled = window.location.search.indexOf('installed=1') !== -1 || window.location.search.indexOf('app=1') !== -1;
-      if (forceInstalled) {
-        stored = 'true';
-        try { localStorage.setItem('bv_android_installed', 'true'); } catch (e) { }
-      }
-
-      // Show OPEN only if localStorage explicitly says installed; otherwise INSTALL
-      renderBannerState(stored === 'true');
-
-      // Display banner at the top of the page
-      banner.style.display = 'flex';
-
-      // 2. Query OS package manager via getInstalledRelatedApps() (production HTTPS only).
-      //    This is the most accurate check — directly queries Android OS.
-      //    Requires: live HTTPS + site.webmanifest with related_applications + assetlinks.json
-      if ('getInstalledRelatedApps' in navigator) {
-        navigator.getInstalledRelatedApps().then(function (relatedApps) {
-          if (Array.isArray(relatedApps)) {
-            var found = relatedApps.some(function (app) {
-              return app.id === PKG || app.platform === 'play';
-            });
-            // Persist accurate OS result
-            try { localStorage.setItem('bv_android_installed', found ? 'true' : 'false'); } catch (e) { }
-            renderBannerState(found);
-          }
-        }).catch(function () { });
-      }
-
-      // 3. Banner action button click handler.
-      bannerBtn.addEventListener('click', function (e) {
-        e.preventDefault();
-
-        if (appIsInstalled) {
-          // App is confirmed installed → open it via Android Intent.
-          // Fallback_url handles the case where the app was uninstalled since last check.
-          window.location.href = INTENT_URL;
-        } else {
-          // App is NOT installed → go to Play Store.
-          window.location.href = MARKET_URL;
-
-          // When user returns from Play Store, re-check installation status.
-          var checkAfterReturn = function () {
-            if (!document.hidden) {
-              if ('getInstalledRelatedApps' in navigator) {
-                navigator.getInstalledRelatedApps().then(function (relatedApps) {
-                  if (Array.isArray(relatedApps)) {
-                    var found = relatedApps.some(function (a) { return a.id === PKG || a.platform === 'play'; });
-                    try { localStorage.setItem('bv_android_installed', found ? 'true' : 'false'); } catch (e) { }
-                    renderBannerState(found);
-                  }
-                }).catch(function () { });
-              }
-              document.removeEventListener('visibilitychange', checkAfterReturn);
-            }
-          };
-          document.addEventListener('visibilitychange', checkAfterReturn);
-        }
-      });
-
-      // 4. Banner close button
-      if (bannerClose) {
-        bannerClose.addEventListener('click', function () {
-          banner.style.display = 'none';
-          try {
-            localStorage.setItem('bv_banner_dismissed', '1');
-            sessionStorage.setItem('bv_banner_dismissed', '1');
-          } catch (e) { }
-        });
-      }
-
-      // 5. Visibility change re-check (when user switches back to this tab)
-      document.addEventListener('visibilitychange', function () {
-        if (!document.hidden && 'getInstalledRelatedApps' in navigator) {
+        // Check if Android app is installed via getInstalledRelatedApps
+        if ('getInstalledRelatedApps' in navigator) {
           navigator.getInstalledRelatedApps().then(function (relatedApps) {
             if (Array.isArray(relatedApps)) {
               var found = relatedApps.some(function (app) {
                 return app.id === PKG || app.platform === 'play';
               });
-              try { localStorage.setItem('bv_android_installed', found ? 'true' : 'false'); } catch (e) { }
-              renderBannerState(found);
+              if (found) {
+                appIsInstalled = true;
+                bannerBtn.textContent = 'OPEN';
+              }
             }
           }).catch(function () { });
         }
+      }
+
+      // Display banner at the top of the page
+      banner.style.display = 'flex';
+
+      // Button click handler
+      bannerBtn.addEventListener('click', function (e) {
+        if (isApple) {
+          e.preventDefault();
+          window.location.href = APP_STORE_URL;
+        } else if (isAndroid) {
+          e.preventDefault();
+          if (appIsInstalled) {
+            window.location.href = INTENT_URL;
+          } else {
+            window.location.href = MARKET_URL;
+          }
+        } else {
+          e.preventDefault();
+          window.location.href = PLAY_STORE_URL;
+        }
       });
 
+      // Close button
+      if (bannerClose) {
+        bannerClose.addEventListener('click', function () {
+          banner.style.display = 'none';
+          try {
+            sessionStorage.setItem('bv_banner_dismissed', '1');
+          } catch (e) { }
+        });
+      }
     })();
 
   </script>
